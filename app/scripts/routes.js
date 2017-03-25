@@ -107,6 +107,10 @@ angular.module('amorAMiApp')
 
   }])
 
+.config(['$locationProvider', function($locationProvider) {
+  $locationProvider.hashPrefix('');
+}])
+
   /**
    * Apply some route security. Any route's resolve method can reject the promise with
    * "AUTH_REQUIRED" to force a redirect. This method enforces that and also watches
