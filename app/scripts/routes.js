@@ -101,6 +101,33 @@ angular.module('amorAMiApp')
           }]
         }
       })
+      .when('/cursos', {
+        templateUrl: 'views/cursos.html',
+        controller: 'CursosCtrl',
+        resolve: {
+          "currentAuth": ["auth", function (auth) {
+            return auth.$waitForSignIn();
+          }]
+        }
+      })
+      .when('/cursos/:cursoId/lecciones', {
+        templateUrl: 'views/lecciones.html',
+        controller: 'LeccionesCtrl',
+        resolve: {
+          "currentAuth": ["auth", function (auth) {
+            return auth.$waitForSignIn();
+          }]
+        }
+      })
+      .when('/cursos/:cursoId/lecciones/:leccionId', {
+        templateUrl: 'views/leccion.html',
+        controller: 'LeccionCtrl',
+        resolve: {
+          "currentAuth": ["auth", function (auth) {
+            return auth.$waitForSignIn();
+          }]
+        }
+      })
       .otherwise({
         redirectTo: '/'
       });
