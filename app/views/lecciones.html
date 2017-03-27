@@ -1,1 +1,12 @@
 <p>This is the lecciones view.</p>
+{{cursoId}}
+
+<h1> {{curso}} <h1>
+
+  <ul>
+    <li ng-repeat="leccion in curso.lecciones">
+      {{$index}}
+      {{leccion}}
+      <button ng-click="verLeccion($index)">remove</button>
+    </li>
+  </ul>

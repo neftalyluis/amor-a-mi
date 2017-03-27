@@ -8,24 +8,10 @@
  * Controller of the amorAMiApp
  */
 angular.module('amorAMiApp')
-  .controller('CursosCtrl', ["currentAuth", "$scope", "$location", "$firebaseObject", function(currentAuth, $scope, $location, $firebaseObject) {
+  .controller('CursosCtrl', ["currentAuth", "$scope", "$location", "cursosRepository", function(currentAuth, $scope, $location, cursosRepository) {
 
     $scope.user = currentAuth;
-
-    $scope.cursos = [
-      {
-        "nombre": "Curso 1 ",
-        "descripcion": "El Mejor Curso del Mundo"
-      },
-      {
-        "nombre": "Curso 1 ",
-        "descripcion": "El Mejor Curso del Mundo"
-      },
-      {
-        "nombre": "Curso 1 ",
-        "descripcion": "El Mejor Curso del Mundo"
-      }
-    ];
+    $scope.cursos = cursosRepository;
 
     $scope.logout = function() {
       auth.$signOut();
@@ -33,5 +19,10 @@ angular.module('amorAMiApp')
       $location.path('/login');
       $scope.authData = null;
     };
+
+    $scope.verCurso = function(cursoId) {
+      //$location.path('/posts/' + postId);
+      $location.path('/cursos/' + cursoId + '/lecciones')
+    }
 
   }]);

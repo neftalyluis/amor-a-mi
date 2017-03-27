@@ -1,4 +1,5 @@
 'use strict';
+
 /**
  * @ngdoc function
  * @name muck2App.controller:AccountCtrl
@@ -7,31 +8,30 @@
  * Provides rudimentary account management functions.
  */
 angular.module('amorAMiApp')
-  .controller('AccountCtrl', ["$scope", "auth", "currentAuth", function (
+  .controller('AccountCtrl', ["$scope", "auth", "currentAuth", function(
     $scope,
     auth,
-    currentAuth
-  , $timeout 
+    currentAuth, $timeout
   ) {
 
-  $scope.user = {
-    uid: currentAuth.uid,
-    name: currentAuth.displayName,
-    photo: currentAuth.photoURL,
-    email: currentAuth.email
-  };
+    $scope.user = {
+      uid: currentAuth.uid,
+      name: currentAuth.displayName,
+      photo: currentAuth.photoURL,
+      email: currentAuth.email
+    };
 
-    
+
 
     $scope.authInfo = currentAuth;
-    
+
     $scope.changePassword = function(oldPass, newPass, confirm) {
       $scope.err = null;
 
-      if( !oldPass || !newPass ) {
+      if (!oldPass || !newPass) {
         error('Please enter all fields');
 
-      } else if( newPass !== confirm ) {
+      } else if (newPass !== confirm) {
         error('Passwords do not match');
 
       } else {
@@ -43,12 +43,12 @@ angular.module('amorAMiApp')
       }
     };
 
-    $scope.changeEmail = function (newEmail) {
+    $scope.changeEmail = function(newEmail) {
       auth.$updateEmail(newEmail)
-        .then(function () {
+        .then(function() {
           console.log("email changed successfully");
         })
-        .catch(function (error) {
+        .catch(function(error) {
           console.log("Error: ", error);
         })
     };
@@ -66,24 +66,27 @@ angular.module('amorAMiApp')
     }
 
     function alert(msg, type) {
-      var obj = {text: msg+'', type: type};
+      var obj = {
+        text: msg + '',
+        type: type
+      };
       $scope.messages.unshift(obj);
       $timeout(function() {
         $scope.messages.splice($scope.messages.indexOf(obj), 1);
       }, 10000);
     }
 
-  $scope.updateProfile = function(name, imgUrl) {
-    firebase.auth().currentUser.updateProfile({
-      displayName: name,
-      photoURL: imgUrl
-    })
-      .then(function () {
-        console.log("updated");
-      })
-      .catch(function (error) {
-        console.log("error ", error);
-      })
-  };
+    $scope.updateProfile = function(name, imgUrl) {
+      firebase.auth().currentUser.updateProfile({
+          displayName: name,
+          photoURL: imgUrl
+        })
+        .then(function() {
+          console.log("updated");
+        })
+        .catch(function(error) {
+          console.log("error ", error);
+        })
+    };
 
   }]);

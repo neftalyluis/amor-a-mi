@@ -8,12 +8,11 @@
  * Controller of the amorAMiApp
  */
 angular.module('amorAMiApp')
-  .controller('LeccionCtrl', ["auth", "$scope", "$location", function (auth, $scope, $location) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('LeccionCtrl', ["auth", "$scope", "$location", "$routeParams", "leccionRepository", function(auth, $scope, $location, $routeParams, leccionRepository) {
+
+    $scope.cursoId = $routeParams.cursoId;
+    $scope.leccionId = $routeParams.leccionId;
+    $scope.leccion = leccionRepository($scope.cursoId, $scope.leccionId)
 
     $scope.logout = function () {
       auth.$signOut();

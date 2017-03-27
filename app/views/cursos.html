@@ -3,6 +3,8 @@
 <div class="">
   <p>Enlistar Cursos: </p>
   <ul>
-    <li ng-repeat="curso in cursos"> {{ curso }}</li>
+    <li ng-repeat="curso in cursos"> {{ curso }}
+      <button ng-click="verCurso(curso.$id)">remove</button>
+    </li>
   </ul>
 </div>

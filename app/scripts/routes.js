@@ -97,7 +97,7 @@ angular.module('amorAMiApp')
         controller: 'Chat',
         resolve: {
           "currentAuth": ["auth", function (auth) {
-            return auth.$waitForSignIn();
+            return auth.$requireSignIn();
           }]
         }
       })
@@ -106,7 +106,16 @@ angular.module('amorAMiApp')
         controller: 'CursosCtrl',
         resolve: {
           "currentAuth": ["auth", function (auth) {
-            return auth.$waitForSignIn();
+            return auth.$requireSignIn();
+          }]
+        }
+      })
+      .when('/cursos/crear', {
+        templateUrl: 'views/crearcurso.html',
+        controller: 'CrearCursoCtrl',
+        resolve: {
+          "currentAuth": ["auth", function (auth) {
+            return auth.$requireSignIn();
           }]
         }
       })
@@ -115,7 +124,7 @@ angular.module('amorAMiApp')
         controller: 'LeccionesCtrl',
         resolve: {
           "currentAuth": ["auth", function (auth) {
-            return auth.$waitForSignIn();
+            return auth.$requireSignIn();
           }]
         }
       })
@@ -124,7 +133,7 @@ angular.module('amorAMiApp')
         controller: 'LeccionCtrl',
         resolve: {
           "currentAuth": ["auth", function (auth) {
-            return auth.$waitForSignIn();
+            return auth.$requireSignIn();
           }]
         }
       })
