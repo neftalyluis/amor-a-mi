@@ -29,46 +29,46 @@
  */
 angular.module('amorAMiApp')
 
-/**
- * Adds a special `whenAuthenticated` method onto $routeProvider. This special method,
- * when called, invokes Auth.$requireAuth() service (see Auth.js).
- *
- * The promise either resolves to the authenticated user object and makes it available to
- * dependency injection (see AccountCtrl), or rejects the promise if user is not logged in,
- * forcing a redirect to the /login page
- */
+  /**
+   * Adds a special `whenAuthenticated` method onto $routeProvider. This special method,
+   * when called, invokes Auth.$requireAuth() service (see Auth.js).
+   *
+   * The promise either resolves to the authenticated user object and makes it available to
+   * dependency injection (see AccountCtrl), or rejects the promise if user is not logged in,
+   * forcing a redirect to the /login page
+   */
 
-/*
- * Commented due to issues with the new SDK
- *
- .config(['$routeProvider', 'SECURED_ROUTES', function ($routeProvider, SECURED_ROUTES) {
+  /*
+   * Commented due to issues with the new SDK
+   *
+   .config(['$routeProvider', 'SECURED_ROUTES', function ($routeProvider, SECURED_ROUTES) {
 
- // credits for this idea: https://groups.google.com/forum/#!msg/angular/dPr9BpIZID0/MgWVluo_Tg8J
- // unfortunately, a decorator cannot be use here because they are not applied until after
- // the .config calls resolve, so they can't be used during route configuration, so we have
- // to hack it directly onto the $routeProvider object
- /*
- $routeProvider.whenAuthenticated = function (path, route) {
- route.resolve = route.resolve || {};
- route.resolve.user = ['auth', function (auth) {
- return auth.$requireSignIn();
- }];
- $routeProvider.when(path, route);
- SECURED_ROUTES[path] = true;
- return $routeProvider;
- };
- }])
- */
+   // credits for this idea: https://groups.google.com/forum/#!msg/angular/dPr9BpIZID0/MgWVluo_Tg8J
+   // unfortunately, a decorator cannot be use here because they are not applied until after
+   // the .config calls resolve, so they can't be used during route configuration, so we have
+   // to hack it directly onto the $routeProvider object
+   /*
+   $routeProvider.whenAuthenticated = function (path, route) {
+   route.resolve = route.resolve || {};
+   route.resolve.user = ['auth', function (auth) {
+   return auth.$requireSignIn();
+   }];
+   $routeProvider.when(path, route);
+   SECURED_ROUTES[path] = true;
+   return $routeProvider;
+   };
+   }])
+   */
 
-// configure views; whenAuthenticated adds a resolve method to ensure users authenticate
-// before trying to access that route
-  .config(['$routeProvider', function ($routeProvider) {
+  // configure views; whenAuthenticated adds a resolve method to ensure users authenticate
+  // before trying to access that route
+  .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         resolve: {
-          "currentAuth": ["auth", function (auth) {
+          "currentAuth": ["auth", function(auth) {
             return auth.$waitForSignIn();
           }]
         }
@@ -86,7 +86,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/account.html',
         controller: 'AccountCtrl',
         resolve: {
-          "currentAuth": ["auth", function (auth) {
+          "currentAuth": ["auth", function(auth) {
             // returns a promisse so the resolve waits for it to complete
             return auth.$requireSignIn();
           }]
@@ -96,7 +96,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/chat.html',
         controller: 'Chat',
         resolve: {
-          "currentAuth": ["auth", function (auth) {
+          "currentAuth": ["auth", function(auth) {
             return auth.$requireSignIn();
           }]
         }
@@ -105,7 +105,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/cursos.html',
         controller: 'CursosCtrl',
         resolve: {
-          "currentAuth": ["auth", function (auth) {
+          "currentAuth": ["auth", function(auth) {
             return auth.$requireSignIn();
           }]
         }
@@ -114,7 +114,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/crearcurso.html',
         controller: 'CrearCursoCtrl',
         resolve: {
-          "currentAuth": ["auth", function (auth) {
+          "currentAuth": ["auth", function(auth) {
             return auth.$requireSignIn();
           }]
         }
@@ -123,7 +123,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/lecciones.html',
         controller: 'LeccionesCtrl',
         resolve: {
-          "currentAuth": ["auth", function (auth) {
+          "currentAuth": ["auth", function(auth) {
             return auth.$requireSignIn();
           }]
         }
@@ -132,7 +132,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/leccion.html',
         controller: 'LeccionCtrl',
         resolve: {
-          "currentAuth": ["auth", function (auth) {
+          "currentAuth": ["auth", function(auth) {
             return auth.$requireSignIn();
           }]
         }
@@ -143,9 +143,10 @@ angular.module('amorAMiApp')
 
   }])
 
-.config(['$locationProvider', function($locationProvider) {
-  $locationProvider.hashPrefix('');
-}])
+  .config(['$locationProvider', function($locationProvider) {
+    $locationProvider.html5Mode(false);
+    $locationProvider.hashPrefix('');
+  }])
 
   /**
    * Apply some route security. Any route's resolve method can reject the promise with
@@ -154,7 +155,7 @@ angular.module('amorAMiApp')
    * that we can no longer view.
    */
   .run(['$rootScope', '$location', 'loginRedirectPath',
-    function ($rootScope, $location, loginRedirectPath, event, next, previous, error) {
+    function($rootScope, $location, loginRedirectPath, event, next, previous, error) {
 
 
       // watch for login status changes and redirect if appropriate
@@ -162,7 +163,7 @@ angular.module('amorAMiApp')
 
       // some of our routes may reject resolve promises with the special {authRequired: true} error
       // this redirects to the login page whenever that is encountered
-      $rootScope.$on("$routeChangeError", function (event, next, previous, error) {
+      $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
         if (error === "AUTH_REQUIRED") {
           $location.path(loginRedirectPath);
         }

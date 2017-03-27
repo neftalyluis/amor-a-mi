@@ -1,10 +1,22 @@
-<h2>Mis cursos</h2>
+<div style="min-height: 400px; height: 400px; background: url(img/boblioteca.jpg);">
+  <div class="header-op" style="height: 400px">
+    <div class="header-content">
+      <div class="header-content-inner">
+        <h1 id="homeHeading" class="text-center" style="margin-top: 150px; color: #fff; font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 50px; font-weight: bold;">Mis cursos</h1>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class="">
-  <p>Enlistar Cursos: </p>
-  <ul>
-    <li ng-repeat="curso in cursos"> {{ curso }}
-      <button ng-click="verCurso(curso.$id)">remove</button>
-    </li>
-  </ul>
+<div class="container" style="padding-bottom: 100px; padding-top: 100px;">
+  <div class="row">
+    <div class="col-sm-4" ng-repeat="curso in cursos">
+      <div>
+        <p class="text-center" style="color: #da2d7d;">{{curso.nombre}}</p>
+        <img src="img/headddder.jpg" style="max-width: 100%; height: auto;">
+        <button class="btn btn-primary" ng-click="verCurso(curso.$id)" style="margin-left: 120px; margin-top: 20px;"><a style="color: #fff; text-decoration: none;">Ir al curso</a></button>
+      </div>
+    </div>
+  </div>
 </div>

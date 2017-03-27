@@ -1,12 +1,124 @@
-<p>This is the lecciones view.</p>
-{{cursoId}}
+  <div class="header head-h" style="min-height: 400px;">
+  		<div class="header-op" style="height: auto; padding: 150px; max-height: 400px;">
+  			<h1 style="color: #fff; font-weight: bold; font-size: 50px;">Mis ejercicios</h1>
+  			<hr style="margin-left: 47.5%;">
+  			   <!-- Trigger the modal with a button -->
+  			<button class="btn btn-primary btn-xl" style="" data-toggle="modal" data-target="#myModal">Bienvenida</button>
 
-<h1> {{curso}} <h1>
+  			<!-- Modal -->
+  			<div id="myModal" class="modal fade" role="dialog">
+  			  <div class="modal-dialog modal-lg">
 
-  <ul>
-    <li ng-repeat="leccion in curso.lecciones">
-      {{$index}}
-      {{leccion}}
-      <button ng-click="verLeccion($index)">remove</button>
-    </li>
-  </ul>
+  			    <!-- Modal content-->
+  			    <div class="modal-content">
+  			      <div class="modal-header">
+  			        <button type="button" class="close" data-dismiss="modal">&times;</button>
+  			        <h4 class="modal-title"></h4>
+  			      </div>
+  			      <div class="modal-body text-left" style="color: #000; padding: 15px 40px;">
+  			        <p>Te doy una calurosa bienvenida a este programa que será un camino de
+
+  						autoconocimiento donde <b>aumentarás tu autoestima</b> y aprenderás a re-conocerte,
+
+  						perdonarte, amarte, reinventarte y empoderarte para que logres amar sin
+
+  						lastimarte, tomes mejores decisiones, mejores tus relaciones personales, evites
+
+  						que abusen de ti, se te facilite pedir ayuda y aceptes solo cosas que mereces y te
+
+  						sientas más feliz. Eres muy valiosa y deseo de corazón que obtengas el mayor
+
+  						provecho de este programa, para lo cual es necesario que inviertas un tiempo de
+
+  						tu día en realizar los ejercicios diarios, pero sobre todo que estés totalmente
+
+  						comprometida para que los resultados transformen tu vida.</p>
+  						<p>En este proceso estaré acompañándote, guiándote y caminando de la mano
+
+  						contigo. Al igual que tú, he pasado por momentos en los que mi autoestima estaba
+
+  						baja y ni siquiera me daba cuenta de ello, pero sé que se puede lograr amarnos a
+
+  						nosotras mismas con dedicación. Y tú lo vas a aprender en este programa que
+
+  						hice con mucho amor, resultado de muchos libros, experiencias, terapias y sobre
+
+  						todo que he comprobado que sirven.</p>
+
+  						<p>Se dice que cuando el alumno está preparado, el maestro aparece. Por lo tanto,
+
+  						sé que este es el momento de hacer un cambio maravilloso en tu vida, para que el
+
+  						amor a ti misma evolucione al nivel que te haga muy feliz y se expanda tanto para
+
+  						compartirlo con todos los que te rodean.</p>
+  						<p class="text-center">Será un honor para mí acompañarte en tu proceso de florecimiento<br>
+
+  							¡Gracias por invertir en ti a través de mí!<br>
+
+  							Con cariño tu coach Paola Vega <i class="fa fa-heart"></i></p>
+  			      </div>
+  			      <div class="modal-footer">
+  			        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+  			      </div>
+  			    </div>
+
+  			  </div>
+  			</div>
+  		</div>
+  	</div>
+
+    <div class="container">
+
+      <h1 style="padding-top: 50px; padding-bottom: 30px;">Instrucciones generales del programa <br> Amor a mi</h1>
+      <ol class="lista-si">
+        <li>1.-Este programa está elaborado exclusivamente para las mujeres que deseen verdaderamente hacer un cambio positivo en su vida y estén totalmente comprometidas con ese cambio.</li>
+        <li>2.-Cambia la palabra debería por YO PODRÍA. Ejemplo, Yo debería estar relajada por Yo PODRÍA estar más relajada.</li>
+            <li>3.-Cambia la palabra intentar por HACER. Ejemplo, Voy a intentar llegar temprano al trabajo por Yo voy a llegar temprano al trabajo. Quitar la palabra intentar y dejar la afirmación del verbo sola porque intentar es hacer realmente nada.</li>
+            <li> 4.-Habla SIEMPRE en primera persona. Esto quiero decir que no digas -A veces uno se enoja cuando la gente es grosera. Cambiarla por YO me enojo cuando la gente es grosera conmigo.</li>
+            <li>5.-Toma la decisión de vivir de manera excelente el día hoy, no para mañana, no el próximo año. Inicia ya sin perder más tiempo de tu vida. </li>
+            <li>6.-Hacer SIEMPRE las tareas, recuerda que la teoría sin práctica no genera ningún cambio.</li>
+            <li>7.-No hablar sobre tu proceso con personas que sabes que te pueden criticar o que no les gusta el desarrollo personal hasta que hayas terminado porque puede que te critiquen, se burlen o quieran arruinar tu crecimiento. </li>
+            <li>8.-No aconsejes los ejercicios a personas negativas hasta que hayas terminado todo el proceso por la misma razón del punto anterior, pueden burlarse, criticar y hacer que no creas en tu propio proceso.</li>
+            <li>10.-Es necesario que tengas la mente abierta para todos los ejercicios y cambios, al final tendrás hermosos resultados. </li>
+            <li>9.-Hacer tres afirmaciones diarias al despertar frente a tu espejo:
+                <ul>
+                  <li>1)ME AMO Y ME APRUEBO (RELAJANDO TODO TU CUERPO)</li>
+                  <li>2)TODOS MIS CAMBIOS SON POSTIVOS, DIVERTIDOS Y AMOROSOS (RELAJANDO TODO TU CUERPO) </li>
+                    <li>3)ESTOY EN PAZ (RELAJANDO TODO TU CUERPO)</li>
+
+                </ul>
+            </li>
+            <li>10.-1 vez a la semana golpear una almohada para liberar tensiones físicas, no importa que no te sientas enojada, golpéala por 5 minutos y deja salir todo el estrés, cansancio, etc. que tengas.</li>
+            <li>11.-1 vez al día abrázate y date besos en los brazos y en todas las partes de tu cuerpo que alcances. Acaríciate cuando te pones crema, si no la usas, acaríciate sin crema y dile cosas bonitas a tu cuerpo.</li>
+            <li>12.-Durante este proceso, es necesario que hagas TODOS los días una pequeña cosa que te haga feliz y tomar foto de lo que hiciste y me la enviarás por correo cada semana lo que hayas hecho durante toda la semana anterior. Al hacerlo estarás creando el hábito de la felicidad.</li>
+      <li>13.-Recuerda que vales mucho solo por el hecho de existir.</li>
+      <li>14.-Se paciente contigo misma, porque estarás cambiando hábitos que tienes arraigados por mucho tiempo.</li>
+      <li>15.-Trátate como si fueras alguien a quien amas demasiado.</li>
+      <li>16.-Evita asustarte o infundirte miedo con pensamientos negativos o dramáticos.</li>
+      <li>17.-Cuida tu postura corporal, mantén la espalda recta y la cabeza en alto. Imagina como camina y actúa una persona con alta autoestima y actúa como ella.</li>
+      <li>18.-Busca solo tu propia aprobación.</li>
+      <li>19.-No te compares con nadie</li>
+      <li>20.-Elogiarte todos los días por algo que hayas hecho y escribirlo para hacer un diario de felicitación.</li>
+        </ol>
+      <p>Nota: Si deseas puedes compartir tus evidencias y experiencias con el grupo de facebook ATRAE AL AMOR DE TU VIDA porque son mujeres que están en el mismo camino que tú de amarse y además puedes ser una inspiración para que ellas hagan sus propios cambios.</p>
+    </div>
+
+    <div class="content-calendar">
+
+
+      <h1>Ejercicios diarios</h1>
+
+
+    <ol class="calendar" start="6" style="height: 600px">
+      <li id="thismonth">
+        <ul ng-repeat="leccion in curso.lecciones" class="pointer">
+          <a ng-click="verLeccion($index)"><li>{{$index}} <p>{{leccion.nombre}}</p>  </li></a>
+        </ul>
+      </li>
+    </ol>
+
+    </div>
+    <div class="container">
+      <p style="margin-bottom: 100px;">Puede que al leer esto creas que es demasiado trabajo, pero créeme, TU VALES MUCHISIMO Y LOS RESULTADOS QUE OBTENDRÁS SERÁN MARAVILLOSOS SI APLICAS TODO LO APRENDIDO. No te llevará más de 20 minutos diarios.</p>
+    </div>

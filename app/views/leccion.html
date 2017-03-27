@@ -1,2 +1,20 @@
-<p>This is the leccion view.</p>
-{{leccion}}
+
+ <div class="header" style="min-height: 400px; height: 400px;" >
+        <div class="header-op">
+            <div class="header-content">
+                <div class="header-content-inner">
+                    <h1 id="homeHeading" style="margin-top: 150px; color: #fff; font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 50px; font-weight: bold;">{{leccion.nombre}}</h1>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Instrucciones</h2>
+        <p>{{leccion.cuerpo}}</p>
+
+        <button class="btn btn-primary" style="margin: 100px auto; margin-left: 40%;">
+            <a href="" style="color: #fff;text-decoration: none;"> Descarga el ejercicio </a>
+        </button>
+    </div>

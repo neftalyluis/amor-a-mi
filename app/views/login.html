@@ -1,6 +1,4 @@
-
-<h2>Login Page</h2>
-
+<!--
 <form role="form">
   <p class="form-group">
     <label for="loginEmail"> Email</label>
@@ -16,12 +14,37 @@
   </p>
 
   <p>
-    <button  class="btn btn-primary" ng-click="passwordLogin(email, pass)" ng-hide="createMode"> Log In </button>
+    <button  class="btn btn-primary"  ng-hide="createMode"> Log In </button>
     <button  class="btn btn-default" ng-click="createMode = true" ng-hide="createMode"> Register </button>
     <button  class="btn btn-primary" ng-cloak ng-show="createMode"
             ng-click="createAccount(email, pass, confirm)">Create Account</button>
     <button  class="btn btn-default" ng-cloak ng-show="createMode" ng-click="createMode = false"> Cancel </button>
   </p>
 </form>
+-->
+
 <p ng-show="err" class="bg-danger">{{err}}</p>
 
+<div class="container alto-pag">
+
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <div class="row" style="padding-top: 60px; padding-bottom: 50px; margin-left: -20px; ">
+        <div class="col-sm-3"><img src="img/logo.jpg" class="logo-menu logo-login"></div>
+        <div class="col-sm-6">
+          <h1 class="text-center">Inicia sesión</h1></div>
+      </div>
+      <form role="form">
+        <div class="form">
+          <label>Usuario:</label>
+          <input class="form-control log-inp" required name="email" type="email" ng-model="email">
+          <label>Contraseña:</label>
+          <input class="form-control log-inp" required name="pass" type="password" ng-model="pass">
+          <p class="text-muted" style="font-size: 12px;">*Tu usuario y contraseña te serán asignados al adquirir el programa.</p>
+          <button class="btn btn-primary pull-right" ng-click="passwordLogin(email, pass)">Iniciar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<p>Nuevo Curso</p>
+<label>Nombre</label><input ng-model="curso.nombre" />
+<label>Descripcion</label><input ng-model="curso.descripcion" />
+
+<p>Agregar Leccion</p>
+<label>Nombre</label><input ng-model="leccionNombre" />
+<label>Descripcion</label><input ng-model="leccionCuerpo" />
+<button ng-click="agregarLeccion()">Agregar Leccion</button>
+
+{{curso}}
+
+<button ng-click="crearCurso()">Crear curso </button>

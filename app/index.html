@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js">
+
 <head>
   <meta charset="utf-8">
   <title></title>
@@ -10,19 +11,56 @@
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
   <link rel="stylesheet" href="bower_components/textAngular/dist/textAngular.css" />
+  <link rel="stylesheet" href="bower_components/magnific-popup/dist/magnific-popup.css" />
+  <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/calendar.css">
+  <link href="styles/creative.css" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 </head>
-<body ng-app="amorAMiApp">
-<!--[if lt IE 7]>
+
+<body ng-app="amorAMiApp" id="page-top">
+  <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<!-- Add your site or application content here -->
+
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" ng-controller="MainCtrl">
+    <div class="container-fluid pink-bar">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
+        <a class="navbar-brand page-scroll" href="#page-top">
+          <img src="img/logo.jpg" class="logo-menu">
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right" style="margin-top: 20px;">
+          <li class=""><a href="#/account" ng-show-auth="">Cuenta</a></li>
+          <li class=""><a href="#/cursos" ng-show-auth="">Mis Cursos</a></li>
+          <li class=""><a href="#/login" ng-hide-auth="">Iniciar Sesion</a></li>
+          <li class=""><a href="" ng-show-auth="" ng-click="logout()">Cerrar Sesion</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+
+  <div ng-view=""></div>
+
+  <footer>Derechos de autor <i class="fa fa-copyright"></i> 2017 Paola Vega</footer>
+
+  <!-- Add your site or application content here
 <div class="header" ng-controller="MainCtrl" ng-cloak="">
   <div class="navbar navbar-default" role="navigation">
     <div class="container">
@@ -41,7 +79,7 @@
       <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
           <ul class="nav navbar-nav">
-            <!-- //angularfire -->
+            <!-- //angularfire
 
             <li class=""><a href="#/chat">Chat</a></li>
 
@@ -60,18 +98,11 @@
     <div ng-view=""></div>
 
   </div>
-
-  <div class="footer">
-    <div class="container">
-      <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team and Firebase</p>
-    </div>
-  </div>
-
-
+-->
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
   <script>
-    !function (A, n, g, u, l, a, r) {
-      A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
+    ! function(A, n, g, u, l, a, r) {
+      A.GoogleAnalyticsObject = l, A[l] = A[l] || function() {
           (A[l].q = A[l].q || []).push(arguments)
         }, A[l].l = +new Date, a = n.createElement(g),
         r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
@@ -103,39 +134,43 @@
   <script src="bower_components/textAngular/dist/textAngular.js"></script>
   <script src="bower_components/textAngular/dist/textAngular-sanitize.js"></script>
   <script src="bower_components/textAngular/dist/textAngularSetup.js"></script>
+  <script src="bower_components/jquery.easing/js/jquery.easing.js"></script>
+  <script src="bower_components/scrollreveal/dist/scrollreveal.js"></script>
+  <script src="bower_components/magnific-popup/dist/jquery.magnific-popup.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
   <script>
-  var config = {
-    apiKey: "AIzaSyAeLMe1rLWg9jtGaD30kNYBvXz6j6u93HY",
-    authDomain: "amor-a-mi-d48eb.firebaseapp.com",
-    databaseURL: "https://amor-a-mi-d48eb.firebaseio.com",
-    storageBucket: "amor-a-mi-d48eb.appspot.com",
-    messagingSenderId: "582401715027"
-  };
-  firebase.initializeApp(config);
+    var config = {
+      apiKey: "AIzaSyAeLMe1rLWg9jtGaD30kNYBvXz6j6u93HY",
+      authDomain: "amor-a-mi-d48eb.firebaseapp.com",
+      databaseURL: "https://amor-a-mi-d48eb.firebaseio.com",
+      storageBucket: "amor-a-mi-d48eb.appspot.com",
+      messagingSenderId: "582401715027"
+    };
+    firebase.initializeApp(config);
   </script>
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts\filters\reverse.js"></script>
-        <script src="scripts/angularfire/auth.js"></script>
-        <script src="scripts\controllers\login.js"></script>
-        <script src="scripts\controllers\account.js"></script>
-        <script src="scripts/directives/ngShowAuth.js"></script>
-        <script src="scripts/directives/ngHideAuth.js"></script>
-        <script src="scripts\routes.js"></script>
-        <script src="scripts/controllers/cursos.js"></script>
-        <script src="scripts/controllers/lecciones.js"></script>
-        <script src="scripts/controllers/leccion.js"></script>
-        <script src="scripts/controllers/crearcurso.js"></script>
-        <script src="scripts/controllers/modificarcurso.js"></script>
-        <script src="scripts/services/cursosrepository.js"></script>
-        <script src="scripts/services/usuariorepository.js"></script>
-        <script src="scripts/services/cursorepository.js"></script>
-        <script src="scripts/services/leccionrepository.js"></script>
-        <!-- endbuild -->
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts\filters\reverse.js"></script>
+  <script src="scripts/angularfire/auth.js"></script>
+  <script src="scripts\controllers\login.js"></script>
+  <script src="scripts\controllers\account.js"></script>
+  <script src="scripts/directives/ngShowAuth.js"></script>
+  <script src="scripts/directives/ngHideAuth.js"></script>
+  <script src="scripts\routes.js"></script>
+  <script src="scripts/controllers/cursos.js"></script>
+  <script src="scripts/controllers/lecciones.js"></script>
+  <script src="scripts/controllers/leccion.js"></script>
+  <script src="scripts/controllers/crearcurso.js"></script>
+  <script src="scripts/controllers/modificarcurso.js"></script>
+  <script src="scripts/services/cursosrepository.js"></script>
+  <script src="scripts/services/usuariorepository.js"></script>
+  <script src="scripts/services/cursorepository.js"></script>
+  <script src="scripts/services/leccionrepository.js"></script>
+  <!-- endbuild -->
 </body>
+
 </html>
