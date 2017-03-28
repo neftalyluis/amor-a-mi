@@ -1,12 +1,14 @@
-<p>Nuevo Curso</p>
-<label>Nombre</label><input ng-model="curso.nombre" />
-<label>Descripcion</label><input ng-model="curso.descripcion" />
+<div class="container" style="padding-bottom: 100px; padding-top: 100px;">
+  <p>Nuevo Curso</p>
+  <label>Nombre</label><input ng-model="curso.nombre" />
+  <label>Descripcion</label>
+  <div text-angular ng-model="curso.descripcion"></div>
 
-<p>Agregar Leccion</p>
-<label>Nombre</label><input ng-model="leccionNombre" />
-<label>Descripcion</label><input ng-model="leccionCuerpo" />
-<button ng-click="agregarLeccion()">Agregar Leccion</button>
+  <p>Agregar Leccion</p>
+  <label>Nombre</label><input ng-model="leccionNombre" />
+  <div text-angular ng-model="leccionCuerpo"></div>
+  <button ng-click="agregarLeccion()">Agregar Leccion</button>
+  <button ng-click="crearCurso()">Crear curso </button>
 
-{{curso}}
-
-<button ng-click="crearCurso()">Crear curso </button>
+  {{curso}}
+</div>

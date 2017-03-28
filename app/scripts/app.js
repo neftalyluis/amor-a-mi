@@ -16,5 +16,6 @@ angular.module('amorAMiApp', [
     'ngSanitize',
     'ngTouch',
     'firebase',
-    'firebase.Auth'
+    'firebase.Auth',
+    'textAngular'
   ]);

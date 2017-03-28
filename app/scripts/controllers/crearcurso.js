@@ -21,6 +21,7 @@ angular.module('amorAMiApp')
 
     $scope.curso = {
       nombre: "",
+      bienvenida: "",
       descripcion: "",
       lecciones : []
     };
@@ -49,7 +50,6 @@ angular.module('amorAMiApp')
 
     $scope.crearCurso = function () {
       $scope.repository.$add($scope.curso);
-
     };
 
   }]);
