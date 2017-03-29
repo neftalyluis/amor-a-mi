@@ -1,21 +1,22 @@
-
- <div class="header" style="min-height: 400px; height: 400px;" >
-        <div class="header-op">
-            <div class="header-content">
-                <div class="header-content-inner">
-                    <h1 id="homeHeading" style="margin-top: 150px; color: #fff; font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 50px; font-weight: bold;">{{leccion.nombre}}</h1>
-                    <hr>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <h2>Instrucciones</h2>
-        <p ta-bind="text" ng-model = "leccion.cuerpo"></p>
-        <div ng-repeat = "archivo in leccion.archivos">
-        <button class="btn btn-primary" style="margin: 100px auto; margin-left: 40%;">
-            <a download ng-href="{{archivo}}" style="color: #fff;text-decoration: none;"> Descarga el ejercicio </a>
-        </button>
+<div class="header" style="min-height: 400px; height: 400px;">
+  <div class="header-op">
+    <div class="header-content">
+      <div class="header-content-inner">
+        <h1 id="homeHeading" style="margin-top: 150px; color: #fff; font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 50px; font-weight: bold;">{{leccion.nombre}}</h1>
+        <hr>
       </div>
     </div>
+  </div>
+</div>
+<div class="container">
+  <h2>Instrucciones</h2>
+  <p ta-bind="text" ng-model="leccion.cuerpo"></p>
+  <div>
+    <button ng-show="showDescarga" class="btn btn-primary" style="margin: 100px auto; margin-left: 40%;" ng-click="checkBucket()">Ver Archivos</button>
+    <div ng-repeat="archivo in bucket">
+      <button class="btn btn-primary" style="margin: 100px auto; margin-left: 40%;">
+            <a download ng-href="{{archivo.direccion}}" style="color: #fff;text-decoration: none;"> {{archivo.archivo}} </a>
+      </button>
+    </div>
+  </div>
+</div>

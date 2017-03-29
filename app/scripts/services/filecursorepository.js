@@ -9,9 +9,8 @@
  */
 angular.module('amorAMiApp')
   .factory('fileCursoRepository', ["$firebaseStorage", function($firebaseStorage) {
-    return function(cursoId, leccionId) {
-      var ref = firebase.storage().ref("cursos/" + cursoId + "/lecciones/" + leccionId);
+    return function(cursoId, leccionId, nombreArchivo) {
+      var ref = firebase.storage().ref().child("cursos/" + cursoId + "/" + leccionId + "/" + nombreArchivo);
       return $firebaseStorage(ref);
     }
-  }
-]);
+  }]);

@@ -28,28 +28,28 @@
 </div>
 
 <div class="container">
-  <div ta-bind="text" ng-model="curso.descripcion" </div>
-  </div>
+  <div ta-bind="text" ng-model="curso.descripcion"> </div>
 
-  <div class="content-calendar">
-
-
-    <h1>Ejercicios diarios</h1>
+    <div class="content-calendar">
 
 
-    <ol class="calendar" start="6" style="height: 600px">
-      <li id="thismonth">
-        <ul ng-repeat="(key, data) in curso.lecciones" class="pointer">
-          <a ng-click="verLeccion(key)">
-            <li>
-              <p>{{data.nombre}}</p>
-            </li>
-          </a>
-        </ul>
-      </li>
-    </ol>
+      <h1>Ejercicios diarios</h1>
 
-  </div>
-  <div class="container">
-    <p style="margin-bottom: 100px;">Puede que al leer esto creas que es demasiado trabajo, pero créeme, TU VALES MUCHISIMO Y LOS RESULTADOS QUE OBTENDRÁS SERÁN MARAVILLOSOS SI APLICAS TODO LO APRENDIDO. No te llevará más de 20 minutos diarios.</p>
+
+      <ol class="calendar" start="6" style="height: 600px">
+        <li id="thismonth">
+          <ul ng-repeat="leccion in curso.lecciones | toArray | orderBy:'id'" class="pointer">
+            <a ng-click="verLeccion(leccion.ruta)">
+              <li>
+                <p>{{leccion.nombre}}</p>
+              </li>
+            </a>
+          </ul>
+        </li>
+      </ol>
+
+    </div>
+    <div class="container">
+      <p style="margin-bottom: 100px;">Puede que al leer esto creas que es demasiado trabajo, pero créeme, TU VALES MUCHISIMO Y LOS RESULTADOS QUE OBTENDRÁS SERÁN MARAVILLOSOS SI APLICAS TODO LO APRENDIDO. No te llevará más de 20 minutos diarios.</p>
+    </div>
   </div>
