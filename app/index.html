@@ -34,7 +34,7 @@
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-        <a class="navbar-brand page-scroll" href="#page-top">
+        <a class="navbar-brand page-scroll" href="#!">
           <img src="images/logo.jpg" class="logo-menu">
         </a>
       </div>
@@ -42,9 +42,9 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right" style="margin-top: 20px;">
-          <li class=""><a href="#/account" ng-show-auth="">Cuenta</a></li>
-          <li class=""><a href="#/cursos" ng-show-auth="">Mis Cursos</a></li>
-          <li class=""><a href="#/login" ng-hide-auth="">Iniciar Sesion</a></li>
+          <li class=""><a href="#!/account" ng-show-auth="">Cuenta</a></li>
+          <li class=""><a href="#!/cursos" ng-show-auth="">Mis Cursos</a></li>
+          <li class=""><a href="#!/login" ng-hide-auth="">Iniciar Sesion</a></li>
           <li class=""><a href="" ng-show-auth="" ng-click="logout()">Cerrar Sesion</a></li>
         </ul>
       </div>
@@ -113,13 +113,13 @@
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="scripts/app.js"></script>
   <script src="scripts/controllers/main.js"></script>
-  <script src="scripts\filters\reverse.js"></script>
+  <script src="scripts/filters/reverse.js"></script>
   <script src="scripts/angularfire/auth.js"></script>
-  <script src="scripts\controllers\login.js"></script>
-  <script src="scripts\controllers\account.js"></script>
+  <script src="scripts/controllers/login.js"></script>
+  <script src="scripts/controllers/account.js"></script>
   <script src="scripts/directives/ngShowAuth.js"></script>
   <script src="scripts/directives/ngHideAuth.js"></script>
-  <script src="scripts\routes.js"></script>
+  <script src="scripts/routes.js"></script>
   <script src="scripts/controllers/cursos.js"></script>
   <script src="scripts/controllers/lecciones.js"></script>
   <script src="scripts/controllers/leccion.js"></script>
