@@ -12,6 +12,10 @@ angular.module('amorAMiApp')
     $scope.cursoId = $routeParams.cursoId
     $scope.curso = cursoRepository($scope.cursoId)
 
+    $scope.openBienvenidaModal = function() {
+      document.getElementById('bienvenidaModal').click();
+    }
+
     $scope.logout = function() {
       auth.$signOut();
       console.log('logged out');
@@ -20,7 +24,6 @@ angular.module('amorAMiApp')
     };
 
     $scope.verLeccion = function(leccionIndex) {
-      //$location.path('/posts/' + postId);
       $location.path('/cursos/' + $scope.cursoId + '/lecciones/' + leccionIndex)
     }
 
