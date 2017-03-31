@@ -1,14 +1,53 @@
 <div class="container" style="padding-bottom: 100px; padding-top: 100px;">
-  <p>Nuevo Curso</p>
-  <label>Nombre</label><input ng-model="curso.nombre" />
-  <label>Descripcion</label>
-  <div text-angular ng-model="curso.descripcion"></div>
 
-  <p>Agregar Leccion</p>
-  <label>Nombre</label><input ng-model="leccionNombre" />
-  <div text-angular ng-model="leccionCuerpo"></div>
-  <button ng-click="agregarLeccion()">Agregar Leccion</button>
-  <button ng-click="crearCurso()">Crear curso </button>
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Agregar Leccion</h4>
+        </div>
+        <div class="modal-body text-left" style="color: #000; padding: 15px 40px;" >
+          <p>
+            <label>Nombre de la Leccion</label>
+            <input ng-model="curso.nombre" />
+            <label>Contenido</label>
+            <textarea froala ng-model="myHtml"></textarea>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  {{curso}}
-</div>
+
+  <div class="row">
+    <p>Nuevo Curso</p>
+  </div>
+  <div class="row">
+    <label>Nombre del Curso</label>
+    <input ng-model="curso.nombre" />
+  </div>
+  <div class="row">
+    <label>Descripcion</label>
+    <textarea froala ng-model="myHtml"></textarea>
+  </div>
+  <div class="row">
+    <label>Texto en el boton de bienvenida</label>
+    <input ng-model="curso.bienvenida" />
+  </div>
+  <div class="row">
+    <label>Bienvenida</label>
+    <textarea froala ng-model="myHtml"></textarea>
+  </div>
+  <div class="row">
+    <button>Agregar nueva leccion
+  </div>
+
+  <button class="btn btn-primary btn-xl" data-toggle="modal" data-target="#myModal" id="bienvenidaModal">Abre Modal</button>
+
+  </div>

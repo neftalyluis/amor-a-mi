@@ -17,5 +17,6 @@ angular.module('amorAMiApp', [
     'ngTouch',
     'firebase',
     'firebase.Auth',
-    'textAngular'
+    'textAngular',
+    'froala'
   ]);
