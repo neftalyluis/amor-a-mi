@@ -8,11 +8,7 @@
  * Provides rudimentary account management functions.
  */
 angular.module('amorAMiApp')
-  .controller('AccountCtrl', ["$scope", "auth", "currentAuth", function(
-    $scope,
-    auth,
-    currentAuth, $timeout
-  ) {
+  .controller('AccountCtrl', ["$scope", "auth", "currentAuth", "$firebaseStorage", function($scope, auth, currentAuth, $timeout, $firebaseStorage) {
 
     $scope.user = {
       uid: currentAuth.uid,
@@ -21,60 +17,7 @@ angular.module('amorAMiApp')
       email: currentAuth.email
     };
 
-
-
     $scope.authInfo = currentAuth;
-
-    $scope.changePassword = function(oldPass, newPass, confirm) {
-      $scope.err = null;
-
-      if (!oldPass || !newPass) {
-        error('Please enter all fields');
-
-      } else if (newPass !== confirm) {
-        error('Passwords do not match');
-
-      } else {
-        // New Method
-        auth.$updatePassword(newPass).then(function() {
-          console.log('Password changed');
-        }, error);
-
-      }
-    };
-
-    $scope.changeEmail = function(newEmail) {
-      auth.$updateEmail(newEmail)
-        .then(function() {
-          console.log("email changed successfully");
-        })
-        .catch(function(error) {
-          console.log("Error: ", error);
-        })
-    };
-
-    $scope.logout = function() {
-      auth.$signOut();
-    };
-
-    function error(err) {
-      console.log("Error: ", err);
-    }
-
-    function success(msg) {
-      alert(msg, 'success');
-    }
-
-    function alert(msg, type) {
-      var obj = {
-        text: msg + '',
-        type: type
-      };
-      $scope.messages.unshift(obj);
-      $timeout(function() {
-        $scope.messages.splice($scope.messages.indexOf(obj), 1);
-      }, 10000);
-    }
 
     $scope.updateProfile = function(name, imgUrl) {
       firebase.auth().currentUser.updateProfile({
@@ -82,11 +25,23 @@ angular.module('amorAMiApp')
           photoURL: imgUrl
         })
         .then(function() {
-          console.log("updated");
+          console.log("Actualizado");
         })
         .catch(function(error) {
           console.log("error ", error);
         })
     };
+
+    $scope.storageRef = firebase.storage().ref("perfiles/" + currentAuth.uid);
+    $scope.storage = $firebaseStorage($scope.storageRef);
+    $scope.fileToUpload = null;
+
+    $scope.onChange = function (fileList) {
+      $scope.fileToUpload = fileList[0];
+    };
+
+    $scope.guardarURL = function (){
+      $scope.storage.$put($scope.fileToUpload);
+    }
 
   }]);
