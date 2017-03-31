@@ -37,7 +37,6 @@ angular.module('amorAMiApp')
 
       var storageRef = firebase.storage().ref().child(item.url);
       var storage = $firebaseStorage(storageRef);
-
       var uploadTask = storage.$put(item._file);
 
       uploadTask.$progress(function(snapshot) {
@@ -48,7 +47,6 @@ angular.module('amorAMiApp')
       uploadTask.$complete(function(snapshot) {
         self._onCompleteItem(item, snapshot.downloadURL, "", "");
         self._onSuccessItem(item, snapshot.downloadURL, "", "");
-        console.log("memes")
       });
 
       uploadTask.$error(function(error) {
