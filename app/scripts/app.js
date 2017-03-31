@@ -18,5 +18,6 @@ angular.module('amorAMiApp', [
     'firebase',
     'firebase.Auth',
     'textAngular',
-    'froala'
+    'froala',
+    'angularFileUpload'
   ]);

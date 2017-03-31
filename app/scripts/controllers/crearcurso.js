@@ -8,7 +8,7 @@
  * Controller of the amorAMiApp
  */
 angular.module('amorAMiApp')
-  .controller('CrearCursoCtrl', ["auth", "$scope", "$location", "cursosRepository", function(auth, $scope, $location, cursosRepository) {
+  .controller('CrearCursoCtrl', ["auth", "$scope", "$location", "cursosRepository","FirebaseStorageUploader", function(auth, $scope, $location, cursosRepository, FirebaseStorageUploader) {
 
     $scope.repository = cursosRepository;
 
@@ -35,5 +35,10 @@ angular.module('amorAMiApp')
       cuerpo: "",
       archivos : []
     }
+
+    $scope.uploader = new FirebaseStorageUploader({
+      url : "memazo"
+    });
+
 
   }]);

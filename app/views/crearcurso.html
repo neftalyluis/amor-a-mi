@@ -9,7 +9,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Agregar Leccion</h4>
         </div>
-        <div class="modal-body text-left" style="color: #000; padding: 15px 40px;" >
+        <div class="modal-body text-left" style="color: #000; padding: 15px 40px;">
           <p>
             <label>Nombre de la Leccion</label>
             <input ng-model="curso.nombre" />
@@ -48,6 +48,16 @@
     <button>Agregar nueva leccion
   </div>
 
+  <div>
+    <input type="file" nv-file-select uploader="uploader"/><br/>
+<ul>
+    <li ng-repeat="item in uploader.queue">
+        Name: <span ng-bind="item.file.name"></span><br/>
+        <button ng-click="item.upload()">upload</button>
+    </li>
+    </ul>
+  </div>
+
   <button class="btn btn-primary btn-xl" data-toggle="modal" data-target="#myModal" id="bienvenidaModal">Abre Modal</button>
 
-  </div>
+</div>
