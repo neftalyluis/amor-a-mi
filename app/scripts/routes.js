@@ -137,6 +137,33 @@ angular.module('amorAMiApp')
           }]
         }
       })
+      .when('/info/amor-a-mi/', {
+        templateUrl: 'views/sesion-amorami.html',
+        controller: 'SesionamoramiCtrl',
+        resolve: {
+          "currentAuth": ["auth", function(auth) {
+            return auth.$waitForSignIn();
+          }]
+        }
+      })
+      .when('/info/coaching/', {
+        templateUrl: 'views/sesion-coaching.html',
+        controller: 'SesioncoachingCtrl',
+        resolve: {
+          "currentAuth": ["auth", function(auth) {
+            return auth.$waitForSignIn();
+          }]
+        }
+      })
+      .when('/info/atrae-al-amor-de-tu-vida', {
+        templateUrl: 'views/sesion-amorvida.html',
+        controller: 'SesionamorvidaCtrl',
+        resolve: {
+          "currentAuth": ["auth", function(auth) {
+            return auth.$waitForSignIn();
+          }]
+        }
+      })
       .when('/cursos/:cursoId/descripcion', {
         templateUrl: 'views/cursodescripcion.html',
         controller: 'CursoDescripcionCtrl',

@@ -1,9 +1,8 @@
-<div class="header head-h" style="min-height: 400px;" ng-init = "openBienvenidaModal()">
+<div class="header head-h" style="min-height: 400px;" ng-init="openBienvenidaModal()">
   <div class="header-op" style="height: auto; padding: 150px; max-height: 400px;">
-    <h1 style="color: #fff; font-weight: bold; font-size: 50px;">Mis Ejercicios</h1>
-    <hr style="margin-left: 47.5%;">
+    <button class="btn btn-primary btn-xl">{{curso.botonBienvenida}}</button>
     <!-- Trigger the modal with a button -->
-    <button class="btn btn-primary btn-xl" data-toggle="modal" data-target="#myModal" id="bienvenidaModal">{{curso.botonBienvenida}}</button>
+    <button class="btn btn-primary btn-xl" data-toggle="modal" data-target="#myModal" id="bienvenidaModal" style="display: none;">{{curso.botonBienvenida}}</button>
 
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
@@ -16,13 +15,18 @@
           </div>
           <div class="modal-body text-left" style="color: #000; padding: 15px 40px; font-weight: bold;" ta-bind="text" ng-model="curso.bienvenida">
           </div>
+          <div class="modal-body text-left" style="color: #000; padding: 15px 40px;">
+            <p class="text-center" style="font-size: 16px;text-align: center;">
+              Con cariño tu coach Paola Vega
+              <i class="fa fa-heart" style="color: #da2d7d;"></i>
+            </p>
+          </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -30,16 +34,12 @@
   <div ta-bind="text" ng-model="curso.descripcion"> </div>
 
   <div class="content-calendar">
-
-
-    <h1 style="color: #fff; background: #da2d7d; padding-top: 20px; font-weight: bold; " >MI CALENDARIO DE EJERCICIOS</h1>
-
-
+    <h1 style="color: #fff; background: #da2d7d; padding-top: 20px; font-weight: bold; ">MI CALENDARIO DE EJERCICIOS</h1>
     <ol class="calendar" start="6" style="height: 600px">
       <li id="thismonth">
         <ul ng-repeat="leccion in curso.lecciones | toArray | orderBy:'id'" class="pointer">
           <a ng-click="verLeccion(leccion.ruta)">
-            <li  style="cursor: pointer;">
+            <li style="cursor: pointer;">
               <p>{{leccion.nombre}} </p>
               <div class="pull-left" style="display: inline-block;"><i class="fa fa-check-square-o fa-2x"></i></div>
               <div class="pull-right numero-cal" style="display: inline-block;">{{leccion.id}}</div>
