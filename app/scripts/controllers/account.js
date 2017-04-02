@@ -8,40 +8,30 @@
  * Provides rudimentary account management functions.
  */
 angular.module('amorAMiApp')
-  .controller('AccountCtrl', ["$scope", "auth", "currentAuth", "$firebaseStorage", function($scope, auth, currentAuth, $firebaseStorage) {
+  .controller('AccountCtrl', ["$scope", "auth", "currentAuth", "FirebaseStorageUploader", function($scope, auth, currentAuth, FirebaseStorageUploader) {
 
-    $scope.user = {
-      uid: currentAuth.uid,
-      name: currentAuth.displayName,
-      photo: currentAuth.photoURL,
-      email: currentAuth.email
+    $scope.ok = false;
+
+    $scope.uploader = new FirebaseStorageUploader({
+      url: 'perfiles/' + currentAuth.uid
+    });
+
+    $scope.uploader.onAfterAddingFile = function(item, filter, options) {
+      if ($scope.uploader.queue.length > 1) {
+        $scope.uploader.queue.splice(0, 1);
+      }
     };
 
-    $scope.authInfo = currentAuth;
-
-    $scope.updateProfile = function(name, imgUrl) {
-      firebase.auth().currentUser.updateProfile({
-          displayName: name,
-          photoURL: imgUrl
-        })
-        .then(function() {
-          console.log("Actualizado");
-        })
-        .catch(function(error) {
-          console.log("error ", error);
-        })
+    $scope.uploader.onSuccessItem = function(fileItem, response, status, headers) {
+      $scope.ok = true;
     };
 
-    $scope.storageRef = firebase.storage().ref("perfiles/" + currentAuth.uid);
-    $scope.storage = $firebaseStorage($scope.storageRef);
-    $scope.fileToUpload = null;
-
-    $scope.onChange = function (fileList) {
-      $scope.fileToUpload = fileList[0];
-    };
-
-    $scope.guardarURL = function (){
-      $scope.storage.$put($scope.fileToUpload);
-    }
+    $scope.uploader.filters.push({
+      name: 'imageFilter',
+      fn: function(item /*{File|FileLikeObject}*/ , options) {
+        var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+        return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+      }
+    });
 
   }]);

@@ -1,16 +1,22 @@
 <div class="container">
   <div>
-    <h3>Profile</h3>
+    <h3>Profile</h3> {{currentAuth.photoURL}}
     <form role="form">
-      <img ng-src="{{ user.photo }}" width="100" height="100">
+      <div ng-repeat="item in uploader.queue">
+        <div>
+          <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
+        </div>
+      </div>
       <p class="form-group">
         <label> Cambia tu imagen de Perfil </label>
-        <input type="text" class="form-control" ng-model="user.photo" name="photoUrl">
+        <div ng-show="uploader.isHTML5">
+          <input type="file" nv-file-select="" uploader="uploader" /><br/>
+        </div>
       </p>
-      <file-upload on-change="$ctrl.onChange">
-        Upload
-      </file-upload>
-      <br><br>
+      <button ng-click="uploader.uploadAll()">Subir</button>
+      <div class="alert alert-success" ng-show="ok">
+        Foto de perfil subida correctamente
+      </div>
     </form>
   </div>
 </div>

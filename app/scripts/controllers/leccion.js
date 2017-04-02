@@ -8,7 +8,7 @@
  * Controller of the amorAMiApp
  */
 angular.module('amorAMiApp')
-  .controller('LeccionCtrl', ["auth", "$scope", "$location", "$routeParams", "leccionRepository", "fileCursoRepository", function(auth, $scope, $location, $routeParams, leccionRepository, fileCursoRepository) {
+  .controller('LeccionCtrl', ["auth", "$scope", "$location", "$routeParams", "leccionRepository", "fileCursoRepository", "avanceCursoRepository", "currentAuth", function(auth, $scope, $location, $routeParams, leccionRepository, fileCursoRepository, avanceCursoRepository, currentAuth) {
 
     $scope.cursoId = $routeParams.cursoId;
     $scope.leccionId = $routeParams.leccionId;
@@ -16,6 +16,16 @@ angular.module('amorAMiApp')
     $scope.bucket = [];
     $scope.archivo;
     $scope.showDescarga = true;
+    $scope.checked = avanceCursoRepository(currentAuth.uid, $scope.cursoId, $scope.leccionId)
+    $scope.headerImage = 'url("../images/header.jpg")'
+
+    $scope.checked.$loaded().then(function() {
+      fileCursoRepository($scope.cursoId, $scope.leccionId, $scope.leccion.header).$getDownloadURL().then(function(url) {
+        $scope.headerImage = 'url("' + url + '")';
+      }, function(error) {
+        console.log(error)
+      })
+    })
 
 
     $scope.logout = function() {
@@ -26,7 +36,6 @@ angular.module('amorAMiApp')
     };
 
     $scope.verCurso = function(leccionIndex) {
-      //$location.path('/posts/' + postId);
       $location.path('/cursos/' + $scope.cursoId)
     }
 
@@ -34,10 +43,18 @@ angular.module('amorAMiApp')
       $scope.leccion.archivos.forEach(function(entry) {
         $scope.archivo = fileCursoRepository($scope.cursoId, $scope.leccionId, entry);
         $scope.archivo.$getDownloadURL().then(function(url) {
-          $scope.bucket.push({archivo: entry, direccion: url})
+          $scope.bucket.push({
+            archivo: entry,
+            direccion: url
+          })
         });;
       })
       $scope.showDescarga = false;
+    }
+
+    $scope.checkCurso = function() {
+      $scope.toCheck = true;
+      $scope.toCheck.$save();
     }
 
   }]);

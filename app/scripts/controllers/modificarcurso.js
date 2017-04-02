@@ -9,11 +9,6 @@
  */
 angular.module('amorAMiApp')
   .controller('ModificarcursoCtrl', ["auth", "$scope", "$location", function (auth, $scope, $location) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
 
     $scope.logout = function () {
       auth.$signOut();

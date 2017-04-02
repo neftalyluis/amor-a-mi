@@ -10,13 +10,12 @@
 </div>
 
 <div class="container" style="padding-bottom: 100px; padding-top: 100px;">
-  <div class="row">
-    <div class="col-sm-4" ng-repeat="curso in cursos">
+  <div class="row" ng-repeat="curso in cursos">
+    <div class="col-sm-4" >
       <div>
         <p class="text-center" style="color: #da2d7d;">{{curso.nombre}}</p>
         <img src="images/headddder.jpg" style="max-width: 100%; height: auto;">
-        <button class="btn btn-primary" ng-click="verCurso(curso.$id)" style="margin-left: 120px; margin-top: 20px;"><a style="color: #fff; text-decoration: none;">Ir al curso</a></button>
+        <button class="btn btn-primary" ng-click="verCurso(curso.$id)" style="margin-left: 120px; margin-top: 20px;"><a style="color: #fff; text-decoration: none;">Iniciar</a></button>
       </div>
     </div>
   </div>
-</div>
