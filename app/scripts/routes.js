@@ -128,6 +128,15 @@ angular.module('amorAMiApp')
           }]
         }
       })
+      .when('/cursos/:cursoId/teoria', {
+        templateUrl: 'views/cursoteoria.html',
+        controller: 'CursoTeoriaCtrl',
+        resolve: {
+          "currentAuth": ["auth", function(auth) {
+            return auth.$requireSignIn();
+          }]
+        }
+      })
       .when('/cursos/:cursoId/lecciones/:leccionId', {
         templateUrl: 'views/leccion.html',
         controller: 'LeccionCtrl',

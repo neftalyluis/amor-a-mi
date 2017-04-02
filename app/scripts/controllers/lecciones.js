@@ -31,4 +31,8 @@ angular.module('amorAMiApp')
       $location.path('/cursos/')
     }
 
+    $scope.verTeoria = function() {
+      $location.path('/cursos/' + $scope.cursoId + '/teoria')
+    }
+
   }]);
