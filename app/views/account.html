@@ -3,23 +3,27 @@
     <h3>Profile</h3> {{currentAuth.photoURL}}
 <div class="container alto-pag">
   <div style="margin-top: 120px;">
-    <h3>Profile</h3>
-    <form role="form">
-      <div ng-repeat="item in uploader.queue">
-        <div>
-          <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-6">
+          <form role="form">
+            <div ng-repeat="item in uploader.queue">
+              <div style="border: solid 3px #da2d7d; padding: 10px; height: 225px; width: 225px; margin: 10px 15%;" class="paola" >
+                <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 200, width: 200, }"></div>
+              </div>
+            </div>
+            <p class="form-group">
+              <label> Cambia tu imagen de Perfil </label>
+              <div ng-show="uploader.isHTML5">
+                <input type="file" nv-file-select="" uploader="uploader" /><br/>
+              </div>
+            </p>
+            <button class="btn btn-primary btn-lg" style="margin-left: 30%;" ng-click="uploader.uploadAll()">Subir</button>
+            <div class="alert alert-success" ng-show="ok">
+              Foto de perfil subida correctamente
+            </div>
+          </form>
         </div>
       </div>
-      <p class="form-group">
-        <label> Cambia tu imagen de Perfil </label>
-        <div ng-show="uploader.isHTML5">
-          <input type="file" nv-file-select="" uploader="uploader" /><br/>
-        </div>
-      </p>
-      <button ng-click="uploader.uploadAll()">Subir</button>
-      <div class="alert alert-success" ng-show="ok">
-        Foto de perfil subida correctamente
-      </div>
-    </form>
   </div>
 </div>
