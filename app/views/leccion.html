@@ -12,9 +12,9 @@
   <h2>Instrucciones</h2>
   <p ta-bind="text" ng-model="leccion.cuerpo"></p>
   <div>
-    <button ng-show="showDescarga" class="btn btn-primary" style="margin: 100px auto; margin-left: 40%;" ng-click="checkBucket()">Ver Archivos</button>
-    <div ng-repeat="archivo in bucket">
-      <button class="btn btn-primary" style="margin: 100px auto; margin-left: 40%;">
+    <button ng-show="showDescarga" class="btn btn-primary" style="margin: 30px auto; margin-left: 45%;" ng-click="checkBucket()">Ver Archivos</button>
+    <div ng-repeat="archivo in bucket" style=" display: inline-block; width: 50%;">
+      <button class="btn btn-primary" style="margin: 40px 30%;">
             <a download ng-href="{{archivo.direccion}}" style="color: #fff;text-decoration: none;"> {{archivo.archivo}} </a>
       </button>
     </div>
