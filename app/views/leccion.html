@@ -11,6 +11,7 @@
 <div class="container">
   <h2>Instrucciones</h2>
   <p ta-bind="text" ng-model="leccion.cuerpo"></p>
+  <div class="numero-cal">1</div>
   <div>
     <button ng-show="showDescarga" class="btn btn-primary" style="margin: 30px auto; margin-left: 45%;" ng-click="checkBucket()">Ver Archivos</button>
     <div ng-repeat="archivo in bucket" style=" display: inline-block; width: 50%;">
