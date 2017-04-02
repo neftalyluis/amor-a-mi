@@ -54,3 +54,7 @@ footer{
 	padding: 3px;
 	border: solid 2px #DA2D7D;
 }
+.modal-backdrop.in{
+	background: pink;
+	opacity: 0.6;
+}

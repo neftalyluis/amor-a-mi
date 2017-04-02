@@ -39,8 +39,9 @@
       <li id="thismonth">
         <ul ng-repeat="leccion in curso.lecciones | toArray | orderBy:'id'" class="pointer">
           <a ng-click="verLeccion(leccion.ruta)">
-            <li>
+            <li  style="cursor: pointer;">
               <p>{{leccion.nombre}}</p>
+              <div class="pull-right numero-cal">1</div>
             </li>
           </a>
         </ul>

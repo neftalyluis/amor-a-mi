@@ -18,7 +18,7 @@ h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 ol.calendar{
-    width:56em;margin:0 auto;
+    width:82em;margin:0 auto;margin-bottom:40px;
     display:block; min-height: 200px;
 	/*background: url(images/tl.png) top left no-repeat;*/
     padding: 12px 0 0 20px;}
@@ -41,8 +41,8 @@ h1{
  * Day styles
  -------------------------*/
 li li {
-    width:7em;
-    height:7em;
+    width:11em;
+    height:8em;
     float:left;
     margin:.2em;
     padding:.2em;
@@ -110,4 +110,15 @@ li#nextmonth li     {
 }
 .lista-si{
     margin-top: 100px;
+}
+.numero-cal{
+    color: #000;
+    font-weight: bold;
+    background: #fff;
+    margin-top: 30px;
+    padding: 10px 15px !important;
+    border-radius: 10px 0px 10px 10px;
+-moz-border-radius: 10px 0px 10px 10px;
+-webkit-border-radius: 10px 0px 10px 10px;
+
 }
