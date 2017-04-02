@@ -12,7 +12,6 @@ angular.module('amorAMiApp')
 
     $scope.user = currentAuth;
     $scope.cursos = cursosRepository;
-
     $scope.logout = function() {
       auth.$signOut();
       console.log('logged out');
