@@ -2,29 +2,36 @@
   <div class="header-op">
     <div class="header-content">
       <div class="header-content-inner">
-        <h1 id="homeHeading" style="margin-top: 150px; color: #fff; font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 50px; font-weight: bold;">{{leccion.nombre}}</h1>
+        <h1 id="homeHeading" style="margin-top: 150px; color: #fff; font-family: 'Raleway', sans-serif; font-size: 50px; font-weight: bold;">{{leccion.nombre}}</h1>
         <hr>
       </div>
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="row">
     <div class="col-md-9">
       <h2>Instrucciones</h2>
       <p ta-bind="text" ng-model="leccion.cuerpo"></p>
-      <div class="numero-cal">1</div>
-      <button class="btn btn-primary" style="margin: 20px " ng-click = "checkCurso()">Marcar como completado</button>
+     
+      
 
     </div>
     <div class="col-md-3">
       <div style="margin-top: 70px;">
-        <button ng-show="showDescarga" class="btn btn-primary" style="margin: 30px auto; margin-left: 45%;" ng-click="checkBucket()">Ver Archivos</button>
+        <div class="row">
+          <p>Número de ejercicios por día: </p>
+          <div style="border-radius: 100%; width: 30px; height: 30px ;margin-bottom: 20px; background: #da2d7d; color: #fff; padding: 4px 11px; font-weight: bold;">1</div>
+        </div>
+        <button ng-show="showDescarga" class="btn btn-primary" style="margin: 30px auto;" ng-click="checkBucket()">Ver y descargar archivos</button>
       <div ng-repeat="archivo in bucket">
-        <button class="btn btn-primary" style="margin: 20px ">
+          <button class="btn btn-primary" style="margin: 20px ">
                 <a download ng-href="{{archivo.direccion}}" style="color: #fff;text-decoration: none;"> {{archivo.archivo}} </a>
           </button>
+         
       </div>
+       <button class="btn btn-primary" style="margin: 20px " ng-click = "checkCurso()">Marcar como completado</button>
     </div>
   </div>
 </div>
