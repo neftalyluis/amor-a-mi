@@ -14,17 +14,18 @@
       <h2>Instrucciones</h2>
       <p ta-bind="text" ng-model="leccion.cuerpo"></p>
       <div class="numero-cal">1</div>
-      
+      <button class="btn btn-primary" style="margin: 20px " ng-click = "checkCurso()">Marcar como completado</button>
+
     </div>
     <div class="col-md-3">
       <div style="margin-top: 70px;">
         <button ng-show="showDescarga" class="btn btn-primary" style="margin: 30px auto; margin-left: 45%;" ng-click="checkBucket()">Ver Archivos</button>
-        <div ng-repeat="archivo in bucket">
-          <button class="btn btn-primary" style="margin: 20px ">
+      <div ng-repeat="archivo in bucket">
+        <button class="btn btn-primary" style="margin: 20px ">
                 <a download ng-href="{{archivo.direccion}}" style="color: #fff;text-decoration: none;"> {{archivo.archivo}} </a>
           </button>
-        </div>
       </div>
     </div>
   </div>
+</div>
 </div>
