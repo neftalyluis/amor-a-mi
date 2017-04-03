@@ -36,11 +36,17 @@ angular.module('amorAMiApp')
     };
 
     function redirect() {
+      $scope.playBeso();
       $location.path('/cursos');
     }
 
     function showError(err) {
       $scope.err = err;
+    }
+
+    $scope.playBeso = function() {
+      var audio = new Audio('images/besos.wav');
+      audio.play();
     }
 
 

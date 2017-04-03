@@ -19,13 +19,14 @@ angular.module('amorAMiApp')
       $scope.authData = null;
     };
 
-    $scope.myHtml = '';
-
     $scope.curso = {
       nombre: "",
       bienvenida: "",
-      botonBienvenida: "",
       descripcion: "",
+      fotoCursos: "",
+      fotoLecciones: "",
+      teoria: "",
+      botonTeoria: "",
       lecciones: []
     };
 
@@ -33,10 +34,15 @@ angular.module('amorAMiApp')
       id: 0,
       nombre: "",
       cuerpo: "",
+      header: "",
       archivos : []
     }
 
-    $scope.uploader = new FirebaseStorageUploader({
+    $scope.convertToURL = function (toChange){
+      return toChange.replace(/ /g, "-").toLowerCase()
+    }
+
+    $scope.uploaderFotos = new FirebaseStorageUploader({
       url : "memazo"
     });
 
