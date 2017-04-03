@@ -8,15 +8,15 @@
     <div id="myModal" class="modal fade" role="dialog">
       <div class="modal-dialog modal-lg">
         <!-- Modal content-->
-        <div class="modal-content">
+        <div class="modal-content" style="background: url(../images/bienvenida.jpg); text-align: center;">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title"></h4>
           </div>
-          <div class="modal-body text-left" style="color: #000; padding: 15px 40px; font-weight: bold;" ta-bind="text" ng-model="curso.bienvenida">
+          <div class="modal-body text-center" style="color: #000; padding: 15px 40px; font-weight: bold; text-align: center;" ta-bind="text" ng-model="curso.bienvenida">
           </div>
-          <div class="modal-body text-left" style="color: #000; padding: 15px 40px;">
-            <p class="text-center" style="font-size: 16px;text-align: center;">
+          <div class="modal-body text-center" style="color: #000; padding: 15px 40px; text-align: center;">
+            <p class="text-center" style="font-size: 25px;text-align: center; font-family: 'Great Vibes', cursive;">
               Con cariño tu coach Paola Vega
               <i class="fa fa-heart" style="color: #da2d7d;"></i>
             </p>
@@ -31,8 +31,11 @@
 </div>
 
 <div class="container">
+  <h3 style="text-transform: uppercase; color: #f391c5; text-align: center;">Recomendaciones generales</h3>
   <div ta-bind="text" ng-model="curso.descripcion"> </div>
-
+  <div class="container">
+    <p style="margin-bottom: 100px;">Puede que al leer esto creas que es demasiado trabajo, pero créeme, TU VALES MUCHISIMO Y LOS RESULTADOS QUE OBTENDRÁS SERÁN MARAVILLOSOS SI APLICAS TODO LO APRENDIDO. No te llevará más de 20 minutos diarios.</p>
+  </div>
   <div class="content-calendar">
     <h1 style="color: #fff; background: #da2d7d; padding-top: 20px; font-weight: bold; ">MI CALENDARIO DE EJERCICIOS</h1>
     <ol class="calendar" start="6" style="height: 600px">
@@ -50,7 +53,5 @@
     </ol>
 
   </div>
-  <div class="container">
-    <p style="margin-bottom: 100px;">Puede que al leer esto creas que es demasiado trabajo, pero créeme, TU VALES MUCHISIMO Y LOS RESULTADOS QUE OBTENDRÁS SERÁN MARAVILLOSOS SI APLICAS TODO LO APRENDIDO. No te llevará más de 20 minutos diarios.</p>
-  </div>
+  
 </div>
