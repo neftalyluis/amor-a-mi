@@ -47,14 +47,14 @@ angular.module('amorAMiApp')
             archivo: entry,
             direccion: url
           })
-        });;
+        });
       })
       $scope.showDescarga = false;
     }
 
     $scope.checkCurso = function() {
-      $scope.toCheck = true;
-      $scope.toCheck.$save();
+      $scope.checked = true;
+      $scope.checked.$save();
     }
 
   }]);

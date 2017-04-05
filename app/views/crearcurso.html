@@ -1,20 +1,51 @@
 <div class="container" style="padding-bottom: 100px; padding-top: 100px;">
 
+  <div class="row">
+    <label>Nombre del Curso:
+    <input type="text" name="NombreCurso" ng-model="curso.nombre" required />
+  </label>
+    <label>Bienvenida:
+    <textarea froala name="BienvenidaCurso" ng-model="curso.bienvenida" required />
+  </label>
+    <label>Descripcion del Curso:
+    <textarea froala name="DescripcionCurso" ng-model="curso.descripcion" required />
+  </label>
+    <label>Boton Teoria:
+  <input type="text" name="BotonTeoriaCurso" ng-model="curso.botonTeoria" required />
+</label>
+    <label>Teoria:
+  <textarea froala name="TeoriaCurso" ng-model="curso.teoria" required />
+</label>
+    <button>Agregar Foto de la Pantalla de Cursos</button>
+    <button>Agregar Foto de la Pantalla de Lecciones</button>
+  </div>
   <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">    <div class="modal-dialog modal-lg">
+  <div id="modalFotoCursos" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Agregar Leccion</h4>
+          <h4 class="modal-title"></h4>
         </div>
-        <div class="modal-body text-left" style="color: #000; padding: 15px 40px;">
-          <p>
-            <label>Nombre de la Leccion</label>
-            <input ng-model="curso.nombre" />
-            <label>Contenido</label>
-            <textarea froala ng-model="myHtml"></textarea>
-          </p>
+        <div class="modal-body text-left" style="color: #000; padding: 15px 40px; font-weight: bold;" ta-bind="text" ng-model="curso.bienvenida">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div id="modalFotoLecciones" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body text-left" style="color: #000; padding: 15px 40px; font-weight: bold;" ta-bind="text" ng-model="curso.bienvenida">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
@@ -23,40 +54,33 @@
     </div>
   </div>
 
-
-  <div class="row">
-    <p>Nuevo Curso</p>
-  </div>
-  <div class="row">
-    <label>Nombre del Curso</label>
-    <input ng-model="curso.nombre" />
-  </div>
-  <div class="row">
-    <label>Descripcion</label>
-    <textarea froala ng-model="myHtml"></textarea>
-  </div>
-  <div class="row">
-    <label>Texto en el boton de bienvenida</label>
-    <input ng-model="curso.bienvenida" />
-  </div>
-  <div class="row">
-    <label>Bienvenida</label>
-    <textarea froala ng-model="myHtml"></textarea>
-  </div>
-  <div class="row">
-    <button>Agregar nueva leccion
-  </div>
-
-  <div>
-    <input type="file" nv-file-select uploader="uploader"/><br/>
-<ul>
-    <li ng-repeat="item in uploader.queue">
-        Name: <span ng-bind="item.file.name"></span><br/>
-        <button ng-click="item.upload()">upload</button>
-    </li>
-    </ul>
+  <!-- Modal -->
+  <div id="modalLeccion" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body text-left" style="color: #000; padding: 15px 40px; font-weight: bold;" ta-bind="text" ng-model="curso.bienvenida">
+          <label>Nombre de la Leccion:
+          <input type="text" name="NombreCurso" ng-model="leccion.nombre" required />
+        </label>
+          <label>Cuerpo de la Leccion:
+          <textarea froala name="BienvenidaCurso" ng-model="leccion.cuerpo" required />
+        </label>
+        <label>Imagen de la cabecera
+          <input type="file"/>
+        </label>
+        <label>Tabla de Archivos</label>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <button class="btn btn-primary btn-xl" data-toggle="modal" data-target="#myModal" id="bienvenidaModal">Abre Modal</button>
 
 </div>

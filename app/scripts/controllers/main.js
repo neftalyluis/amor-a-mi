@@ -31,7 +31,7 @@ angular.module('amorAMiApp')
         $scope.uid = $scope.currentAuth.$getAuth().uid
         $scope.showProfile = true
       }
-      
+
       if ($location.path().split("/")[3] === "lecciones") {
         $scope.showCourseName = true;
         var curso = $location.path().split("/")[2]
@@ -39,6 +39,18 @@ angular.module('amorAMiApp')
         $scope.courseName = $scope.courseName.replace("-", " ");
       }
     });
+
+    $scope.goToAAM = function() {
+      $location.path("/info/amor-a-mi")
+    }
+
+    $scope.goToAAA = function() {
+      $location.path("/info/atrae-al-amor-de-tu-vida")
+    }
+
+    $scope.goToC = function() {
+      $location.path("/info/coaching")
+    }
 
 
   }]);

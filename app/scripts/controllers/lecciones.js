@@ -11,6 +11,7 @@ angular.module('amorAMiApp')
   .controller('LeccionesCtrl', ["auth", "$scope", "$location", "$routeParams", "cursoRepository", function(auth, $scope, $location, $routeParams, cursoRepository) {
     $scope.cursoId = $routeParams.cursoId
     $scope.curso = cursoRepository($scope.cursoId)
+    $scope.progreso = "";
 
     $scope.openBienvenidaModal = function() {
       document.getElementById('bienvenidaModal').click();
