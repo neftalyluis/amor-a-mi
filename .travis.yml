@@ -8,7 +8,7 @@ branches:
     - master
 
 before_script:
-  - npm install -g bower grunt
+  - npm install -g bower grunt firebase-tools
   - npm install
   - bower install
 
