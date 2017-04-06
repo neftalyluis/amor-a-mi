@@ -8,10 +8,12 @@
  * Controller of the amorAMiApp
  */
 angular.module('amorAMiApp')
-  .controller('LeccionesCtrl', ["auth", "$scope", "$location", "$routeParams", "cursoRepository", function(auth, $scope, $location, $routeParams, cursoRepository) {
+  .controller('LeccionesCtrl', ["auth", "$scope", "$location", "$routeParams", "cursoRepository", "avanceCursoRepository", "currentAuth", function(auth, $scope, $location, $routeParams, cursoRepository, avanceCursoRepository, currentAuth) {
     $scope.cursoId = $routeParams.cursoId
     $scope.curso = cursoRepository($scope.cursoId)
     $scope.progreso = "";
+    $scope.checked = avanceCursoRepository(currentAuth.uid)
+
 
     $scope.openBienvenidaModal = function() {
       //document.getElementById('bienvenidaModal').click();

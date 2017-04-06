@@ -9,8 +9,8 @@
  */
 angular.module('amorAMiApp')
   .factory('avanceCursoRepository', ["$firebaseObject", function($firebaseObject) {
-    return function(userId, curso, leccion) {
-      var ref = firebase.database().ref("perfiles/" + userId + "/" + curso + "/" + leccion).push();
+    return function(userId) {
+      var ref = firebase.database().ref("perfiles/" + userId);
       return $firebaseObject(ref);
     }
   }]);

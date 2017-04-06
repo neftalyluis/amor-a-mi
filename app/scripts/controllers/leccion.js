@@ -16,10 +16,11 @@ angular.module('amorAMiApp')
     $scope.bucket = [];
     $scope.archivo;
     $scope.showDescarga = true;
-    $scope.checked = avanceCursoRepository(currentAuth.uid, $scope.cursoId, $scope.leccionId)
+    $scope.checked = avanceCursoRepository(currentAuth.uid)
     $scope.headerImage = 'url("../images/header.jpg")'
 
     $scope.checked.$loaded().then(function() {
+      console.log($scope.checked)
       fileCursoRepository($scope.cursoId, $scope.leccionId, $scope.leccion.header).$getDownloadURL().then(function(url) {
         $scope.headerImage = 'url("' + url + '")';
       }, function(error) {
@@ -60,11 +61,17 @@ angular.module('amorAMiApp')
 
     $scope.checkCurso = function() {
       console.log($scope.checked)
-      $scope.checked = {valor : true};
-      $scope.checked.$save().then(function() {
-        alert('Profile saved!');
-      }).catch(function(error) {
-        alert('Error!');
+      if (angular.equals({}, $scope.checked[$scope.cursoId])){
+        $scope.checked[$scope.cursoId] = {}
+      }
+      $scope.checked[$scope.cursoId][$scope.leccionId] = true
+
+      $scope.checked.$save().then(function(ref) {
+        console.log(ref)
+        $location.path('/cursos/' + $scope.cursoId + "/lecciones")
+
+      }, function(error) {
+        console.log("Error:", error);
       });
       console.log($scope.checked)
 
