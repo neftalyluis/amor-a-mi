@@ -39,6 +39,12 @@ angular.module('amorAMiApp')
       $location.path('/cursos/' + $scope.cursoId)
     }
 
+    $scope.leccion.$loaded().then(function() {
+      $scope.checkBucket();
+    }, function(error) {
+      console.log("Couldn't load files from Lesson")
+    })
+
     $scope.checkBucket = function() {
       $scope.leccion.archivos.forEach(function(entry) {
         $scope.archivo = fileCursoRepository($scope.cursoId, $scope.leccionId, entry);
