@@ -59,8 +59,15 @@ angular.module('amorAMiApp')
     }
 
     $scope.checkCurso = function() {
-      $scope.checked = true;
-      $scope.checked.$save();
+      console.log($scope.checked)
+      $scope.checked = {valor : true};
+      $scope.checked.$save().then(function() {
+        alert('Profile saved!');
+      }).catch(function(error) {
+        alert('Error!');
+      });
+      console.log($scope.checked)
+
     }
 
   }]);

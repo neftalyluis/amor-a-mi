@@ -137,6 +137,15 @@ angular.module('amorAMiApp')
           }]
         }
       })
+      .when('/cursos/:cursoId/bienvenida', {
+        templateUrl: 'views/bienvenida.html',
+        controller: 'BienvenidaCtrl',
+        resolve: {
+          "currentAuth": ["auth", function(auth) {
+            return auth.$requireSignIn();
+          }]
+        }
+      })
       .when('/cursos/:cursoId/lecciones/:leccionId', {
         templateUrl: 'views/leccion.html',
         controller: 'LeccionCtrl',

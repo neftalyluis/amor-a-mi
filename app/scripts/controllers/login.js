@@ -7,10 +7,11 @@
  * Manages authentication to any active providers.
  */
 angular.module('amorAMiApp')
-  .controller('LoginCtrl', ["$scope", "auth", "$location", function($scope, auth, $location) {
+  .controller('LoginCtrl', ["$scope", "auth", "$location", "besos", function($scope, auth, $location, besos) {
 
     $scope.loginBtn = true;
     $scope.logoutBtn = true;
+    $scope.besos = besos()
 
     auth.$onAuthStateChanged(function(authData) {
       if (authData) {
@@ -45,8 +46,12 @@ angular.module('amorAMiApp')
     }
 
     $scope.playBeso = function() {
-      var audio = new Audio('images/besos.wav');
-      audio.play();
+
+      $scope.besos.$getDownloadURL().then(function(url) {
+        var audio = new Audio(url);
+        audio.play();
+      });
+
     }
 
 
