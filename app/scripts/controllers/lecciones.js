@@ -14,7 +14,7 @@ angular.module('amorAMiApp')
     $scope.progreso = "";
 
     $scope.openBienvenidaModal = function() {
-      document.getElementById('bienvenidaModal').click();
+      //document.getElementById('bienvenidaModal').click();
     }
 
     $scope.logout = function() {
