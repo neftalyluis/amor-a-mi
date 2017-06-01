@@ -129,10 +129,29 @@ li#nextmonth li     {
 @media (max-width: 500px){
     ol.calendar{
         width: 100% !important;
-        max-width: 500px !important;
+        max-width: 400px !important;
     }
 
     #bs-example-navbar-collapse-1{
         background-color: pink !important;
+    }
+
+    #mainNav{
+        height: 60px !important;
+    }
+
+    .pink-bar{
+        height: 60px !important;
+    }
+
+    .logo-menu{
+        height: 60px !important;
+    }
+
+    .memeo{
+        width: 170% !important;
+    }
+    footer{
+        width: 170% !important;
     }
 }
