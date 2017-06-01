@@ -162,4 +162,8 @@ li#nextmonth li     {
     li li p {
         font-size: 18px !important;
     }
+    .navbar-toggle{
+        font-size: 18px !important;
+        color: #fff !important;
+    }
 }
