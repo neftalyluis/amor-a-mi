@@ -18,8 +18,11 @@ h6 {
  font-family: 'Raleway', sans-serif;
 }
 ol.calendar{
-    width:82em;margin:0 auto;margin-bottom:40px;
-    display:block; min-height: 200px;
+    width:82em;
+    margin:0 auto;
+    margin-bottom:40px;
+    display:block; 
+    min-height: 200px;
 	/*background: url(images/tl.png) top left no-repeat;*/
     padding: 12px 0 0 20px;}
 li {
@@ -121,4 +124,15 @@ li#nextmonth li     {
 -moz-border-radius: 10px 0px 10px 10px;
 -webkit-border-radius: 10px 0px 10px 10px;
 
+}
+
+@media (max-width: 500px){
+    ol.calendar{
+        width: 100% !important;
+        max-width: 500px !important;
+    }
+
+    #bs-example-navbar-collapse-1{
+        background-color: pink !important;
+    }
 }

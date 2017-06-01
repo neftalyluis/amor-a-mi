@@ -35,7 +35,7 @@
   <div ta-bind="text" ng-model="curso.descripcion"> </div>
   <div class="content-calendar">
     <h1 style="color: #fff; background: #da2d7d; padding-top: 20px; font-weight: bold; ">MI CALENDARIO DE EJERCICIOS</h1>
-    <ol class="calendar" start="6" style="height: 600px">
+    <ol class="calendar mig-mov" start="6" style="height: 600px">
       <li id="thismonth">
         <ul ng-repeat="leccion in curso.lecciones | toArray | orderBy:'id'" class="pointer">
           <a ng-click="verLeccion(leccion.ruta)">
