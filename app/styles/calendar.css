@@ -137,15 +137,15 @@ li#nextmonth li     {
     }
 
     #mainNav{
-        height: 80px !important;
+        height: 100px !important;
     }
 
     .pink-bar{
-        height: 80px !important;
+        height: 100px !important;
     }
 
     .logo-menu{
-        height: 80px !important;
+        height: 100px !important;
     }
 
     .memeo{
@@ -153,5 +153,13 @@ li#nextmonth li     {
     }
     footer{
         width: 170% !important;
+    }
+
+    li li {
+        width: 50% !important;
+    }
+
+    li li p {
+        font-size: 18px !important;
     }
 }
