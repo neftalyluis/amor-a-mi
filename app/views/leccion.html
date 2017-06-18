@@ -16,8 +16,8 @@
       <p ta-bind="text" ng-model="leccion.cuerpo"></p>
     </div>
     <div class="col-md-3">
-      <div style="margin-top: 70px;">
-        <div class="row">
+      <div style="margin-top: 70px; padding-left: 15px;">
+        <div class="row" style="padding-left: 15px;">
           <p>Número de ejercicios por día: </p>
           <div style="border-radius: 100%; width: 30px; height: 30px ;margin-bottom: 20px; background: #da2d7d; color: #fff; padding: 4px 11px; font-weight: bold;" ng-repeat="archivo in bucket">{{$index+1}}</div>
           <button class="btn btn-primary" style="margin: 20px " ng-click="checkCurso()">Marcar como completado</button>
