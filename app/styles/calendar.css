@@ -180,4 +180,12 @@ li#nextmonth li     {
         margin: 20px !important; 
         margin-left: 30px !important;
     }
+
+    .op-mob{
+        width: 175% !important;
+    }
+
+    p span{
+        font-size: 22px !important;
+    }
 }
