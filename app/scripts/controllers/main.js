@@ -8,30 +8,23 @@
  * Controller of the amorAMiApp
  */
 angular.module('amorAMiApp')
-  .controller('MainCtrl', ["auth", "$scope", "$location", function(auth, $scope, $location) {
+  .controller('MainCtrl', ['auth', '$scope', '$location', function(auth, $scope, $location) {
 
     $scope.scrollTo = function(id) {
       $location.hash(id);
       $anchorScroll();
     }
 
-    $scope.logout = function() {
-      auth.$signOut();
-      console.log('logged out');
-      $location.path('/login');
-      $scope.authData = null;
-    };
-
     $scope.currentAuth = auth
 
     $scope.path = $location.path()
 
-    $scope.urlProfile = "perfiles/";
+    $scope.urlProfile = 'perfiles/';
 
-    $scope.uid = "";
+    $scope.uid = '';
     $scope.showProfile = false;
     $scope.showCourseName = false;
-    $scope.courseName = "";
+    $scope.courseName = '';
 
     $scope.$on('$locationChangeStart', function(event) {
       if ($scope.currentAuth.$getAuth() !== null) {
@@ -39,24 +32,24 @@ angular.module('amorAMiApp')
         $scope.showProfile = true
       }
 
-      if ($location.path().split("/")[3] === "lecciones") {
+      if ($location.path().split('/')[3] === 'lecciones') {
         $scope.showCourseName = true;
-        var curso = $location.path().split("/")[2]
-        $scope.courseName = curso.charAt(0).toUpperCase() + curso.slice(1).replace("-", " ");
-        $scope.courseName = $scope.courseName.replace("-", " ");
+        var curso = $location.path().split('/')[2]
+        $scope.courseName = curso.charAt(0).toUpperCase() + curso.slice(1).replace('-', ' ');
+        $scope.courseName = $scope.courseName.replace('-', ' ');
       }
     });
 
     $scope.goToAAM = function() {
-      $location.path("/info/amor-a-mi")
+      $location.path('/info/amor-a-mi')
     }
 
     $scope.goToAAA = function() {
-      $location.path("/info/atrae-al-amor-de-tu-vida")
+      $location.path('/info/atrae-al-amor-de-tu-vida')
     }
 
     $scope.goToC = function() {
-      $location.path("/info/coaching")
+      $location.path('/info/coaching')
     }
 
 

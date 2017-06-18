@@ -8,9 +8,9 @@
  * Factory in the amorAMiApp.
  */
 angular.module('amorAMiApp')
-  .factory('cursoRepository', ["$firebaseObject", function($firebaseObject) {
+  .factory('cursoRepository', ['$firebaseObject', function($firebaseObject) {
       return function(cursoId) {
-        var ref = firebase.database().ref("cursos").child(cursoId);
+        var ref = firebase.database().ref('cursos').child(cursoId);
         return $firebaseObject(ref);
       }
     }

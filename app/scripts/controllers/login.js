@@ -7,7 +7,7 @@
  * Manages authentication to any active providers.
  */
 angular.module('amorAMiApp')
-  .controller('LoginCtrl', ["$scope", "auth", "$location", "besos", function($scope, auth, $location, besos) {
+  .controller('LoginCtrl', ['$scope', 'auth', '$location', 'besos', function($scope, auth, $location, besos) {
 
     $scope.loginBtn = true;
     $scope.logoutBtn = true;
@@ -15,7 +15,7 @@ angular.module('amorAMiApp')
 
     auth.$onAuthStateChanged(function(authData) {
       if (authData) {
-        console.log(" logged: " + authData.uid);
+        console.log(' logged: ' + authData.uid);
         $scope.logoutBtn = true;
         $scope.loginBtn = false;
         $location.path('/cursos');
@@ -28,11 +28,11 @@ angular.module('amorAMiApp')
       auth.$signInWithEmailAndPassword(email, pass)
         .then(function(authData) {
           redirect();
-          console.log("logged");
+          console.log('logged');
         })
         .catch(function(error) {
           showError(error);
-          console.log("error: " + error);
+          console.log('error: ' + error);
         });
     };
 

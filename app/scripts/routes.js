@@ -68,7 +68,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         resolve: {
-          "currentAuth": ["auth", function(auth) {
+          'currentAuth': ['auth', function(auth) {
             return auth.$waitForSignIn();
           }]
         }
@@ -86,7 +86,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/account.html',
         controller: 'AccountCtrl',
         resolve: {
-          "currentAuth": ["auth", function(auth) {
+          'currentAuth': ['auth', function(auth) {
             // returns a promisse so the resolve waits for it to complete
             return auth.$requireSignIn();
           }]
@@ -96,7 +96,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/chat.html',
         controller: 'Chat',
         resolve: {
-          "currentAuth": ["auth", function(auth) {
+          'currentAuth': ['auth', function(auth) {
             return auth.$requireSignIn();
           }]
         }
@@ -105,7 +105,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/cursos.html',
         controller: 'CursosCtrl',
         resolve: {
-          "currentAuth": ["auth", function(auth) {
+          'currentAuth': ['auth', function(auth) {
             return auth.$requireSignIn();
           }]
         }
@@ -114,7 +114,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/crearcurso.html',
         controller: 'CrearCursoCtrl',
         resolve: {
-          "currentAuth": ["auth", function(auth) {
+          'currentAuth': ['auth', function(auth) {
             return auth.$requireSignIn();
           }]
         }
@@ -123,7 +123,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/lecciones.html',
         controller: 'LeccionesCtrl',
         resolve: {
-          "currentAuth": ["auth", function(auth) {
+          'currentAuth': ['auth', function(auth) {
             return auth.$requireSignIn();
           }]
         }
@@ -132,7 +132,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/cursoteoria.html',
         controller: 'CursoTeoriaCtrl',
         resolve: {
-          "currentAuth": ["auth", function(auth) {
+          'currentAuth': ['auth', function(auth) {
             return auth.$requireSignIn();
           }]
         }
@@ -141,7 +141,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/bienvenida.html',
         controller: 'BienvenidaCtrl',
         resolve: {
-          "currentAuth": ["auth", function(auth) {
+          'currentAuth': ['auth', function(auth) {
             return auth.$requireSignIn();
           }]
         }
@@ -150,7 +150,16 @@ angular.module('amorAMiApp')
         templateUrl: 'views/leccion.html',
         controller: 'LeccionCtrl',
         resolve: {
-          "currentAuth": ["auth", function(auth) {
+          'currentAuth': ['auth', function(auth) {
+            return auth.$requireSignIn();
+          }]
+        }
+      })
+      .when('/cursos/editar/:cursoId/', {
+        templateUrl: 'views/modificarcurso.html',
+        controller: 'ModificarcursoCtrl',
+        resolve: {
+          'currentAuth': ['auth', function(auth) {
             return auth.$requireSignIn();
           }]
         }
@@ -159,7 +168,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/sesion-amorami.html',
         controller: 'SesionamoramiCtrl',
         resolve: {
-          "currentAuth": ["auth", function(auth) {
+          'currentAuth': ['auth', function(auth) {
             return auth.$waitForSignIn();
           }]
         }
@@ -168,7 +177,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/sesion-coaching.html',
         controller: 'SesioncoachingCtrl',
         resolve: {
-          "currentAuth": ["auth", function(auth) {
+          'currentAuth': ['auth', function(auth) {
             return auth.$waitForSignIn();
           }]
         }
@@ -177,7 +186,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/sesion-amorvida.html',
         controller: 'SesionamorvidaCtrl',
         resolve: {
-          "currentAuth": ["auth", function(auth) {
+          'currentAuth': ['auth', function(auth) {
             return auth.$waitForSignIn();
           }]
         }
@@ -186,7 +195,7 @@ angular.module('amorAMiApp')
         templateUrl: 'views/cursodescripcion.html',
         controller: 'CursoDescripcionCtrl',
         resolve: {
-          "currentAuth": ["auth", function(auth) {
+          'currentAuth': ['auth', function(auth) {
             return auth.$waitForSignIn();
           }]
         }
@@ -204,21 +213,19 @@ angular.module('amorAMiApp')
 
   /**
    * Apply some route security. Any route's resolve method can reject the promise with
-   * "AUTH_REQUIRED" to force a redirect. This method enforces that and also watches
+   * 'AUTH_REQUIRED' to force a redirect. This method enforces that and also watches
    * for changes in auth status which might require us to navigate away from a path
    * that we can no longer view.
    */
   .run(['$rootScope', '$location', 'loginRedirectPath',
     function($rootScope, $location, loginRedirectPath, event, next, previous, error) {
-
-
       // watch for login status changes and redirect if appropriate
       // auth.$onAuthStateChanged(check);
 
       // some of our routes may reject resolve promises with the special {authRequired: true} error
       // this redirects to the login page whenever that is encountered
-      $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
-        if (error === "AUTH_REQUIRED") {
+      $rootScope.$on('$routeChangeError', function(event, next, previous, error) {
+        if (error === 'AUTH_REQUIRED') {
           $location.path(loginRedirectPath);
         }
       });

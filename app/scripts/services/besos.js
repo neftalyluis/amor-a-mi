@@ -8,9 +8,9 @@
  * Service in the amorAMiApp.
  */
 angular.module('amorAMiApp')
-  .factory('besos', ["$firebaseStorage", function($firebaseStorage) {
+  .factory('besos', ['$firebaseStorage', function($firebaseStorage) {
     return function() {
-      var ref = firebase.storage().ref().child("besos.ogg");
+      var ref = firebase.storage().ref().child('besos.ogg');
       return $firebaseStorage(ref);
     }
   }]);

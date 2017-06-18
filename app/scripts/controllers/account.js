@@ -8,7 +8,7 @@
  * Provides rudimentary account management functions.
  */
 angular.module('amorAMiApp')
-  .controller('AccountCtrl', ["$scope", "auth", "currentAuth", "FirebaseStorageUploader", function($scope, auth, currentAuth, FirebaseStorageUploader) {
+  .controller('AccountCtrl', ['$scope', 'auth', 'currentAuth', 'FirebaseStorageUploader', function($scope, auth, currentAuth, FirebaseStorageUploader) {
 
     $scope.ok = false;
 

@@ -8,8 +8,8 @@
  * Factory in the amorAMiApp.
  */
 angular.module('amorAMiApp')
-  .factory('usuarioRepository',  ["$firebaseArray", function($firebaseArray) {
-    var ref = firebase.database().ref("usuarios");
+  .factory('usuarioRepository',  ['$firebaseArray', function($firebaseArray) {
+    var ref = firebase.database().ref('usuarios');
     return $firebaseArray(ref);
   }
 ]);

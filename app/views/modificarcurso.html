@@ -2,7 +2,7 @@
   <div class="header-op" style="height: 400px">
     <div class="header-content">
       <div class="header-content-inner">
-        <h1 id="homeHeading" class="text-center" style="margin-top: 150px; color: #fff; font-family: 'Raleway', sans-serif; font-size: 50px; font-weight: bold;">Crear nuevo curso</h1>
+        <h1 id="homeHeading" class="text-center" style="margin-top: 150px; color: #fff; font-family: 'Raleway', sans-serif; font-size: 50px; font-weight: bold;">Editar Curso: {{curso.nombre}}</h1>
         <hr>
       </div>
     </div>
@@ -13,7 +13,7 @@
   <div class="row">
     <div class="form-group">
       <h2>Nombre:</h2>
-      <input class="form-control log-inp" required name="email" type="email" ng-model="email">
+      <input class="form-control log-inp" ng-model="curso.nombre">
     </div>
   </div>
   <div class="row">
@@ -30,47 +30,23 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>John</td>
-          <td>Doe</td>
+        <tr ng-repeat="leccion in curso.lecciones | toArray | orderBy:'id'">
+          <td>{{leccion.id}}</td>
+          <td>{{leccion.nombre}}</td>
           <td>
-            <button class="btn btn-primary btn-xs">
+            <button class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Remover">
               <span class="fa fa-remove"/>
             </button>
-            <button class="btn btn-primary btn-xs">
+            <button class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Editar" ng-click="modifyLeccion(leccion.id)">
               <span class="fa fa-edit"/>
             </button>
-            <button class="btn btn-primary btn-xs">
+            <button class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Cambiar de lugar">
               <span class="fa fa-step-forward"/>
             </button>
-          </td>
-        </tr>
-        <tr>
-          <td>Mary</td>
-          <td>Moe</td>
-          <td>
-            <button class="btn btn-primary btn-xs">
-              <span class="fa fa-remove"/>
-            </button>
-            <button class="btn btn-primary btn-xs">
-              <span class="fa fa-edit"/>
-            </button>
-            <button class="btn btn-primary btn-xs">
+            <button class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Editar Archivos Descargables">
               <span class="fa fa-step-forward"/>
             </button>
-          </td>
-        </tr>
-        <tr>
-          <td>July</td>
-          <td>Dooley</td>
-          <td>
-            <button class="btn btn-primary btn-xs">
-              <span class="fa fa-remove"/>
-            </button>
-            <button class="btn btn-primary btn-xs">
-              <span class="fa fa-edit"/>
-            </button>
-            <button class="btn btn-primary btn-xs">
+            <button class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Editar Imagenes">
               <span class="fa fa-step-forward"/>
             </button>
           </td>
@@ -116,15 +92,15 @@
       <div class="modal-body">
         <div class="form-group">
           <label>Nombre:</label>
-          <input class="form-control log-inp" required name="email" type="email" ng-model="email">
+          <input class="form-control log-inp" ng-model="temporalLeccion.nombre">
         </div>
         <div class="form-group">
           <label>Contenido de la leccion:</label>
-          <textarea froala ng-model="myHtml"></textarea>
+          <textarea froala ng-model="temporalLeccion.cuerpo"></textarea>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-toggle="modal">Agregar Leccion</button>
+        <button type="button" class="btn btn-info" data-toggle="modal">Guardar Leccion</button>
       </div>
     </div>
   </div>

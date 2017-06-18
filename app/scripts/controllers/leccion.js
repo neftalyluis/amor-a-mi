@@ -8,7 +8,7 @@
  * Controller of the amorAMiApp
  */
 angular.module('amorAMiApp')
-  .controller('LeccionCtrl', ["auth", "$scope", "$location", "$routeParams", "leccionRepository", "fileCursoRepository", "avanceCursoRepository", "currentAuth", function(auth, $scope, $location, $routeParams, leccionRepository, fileCursoRepository, avanceCursoRepository, currentAuth) {
+  .controller('LeccionCtrl', ['auth', '$scope', '$location', '$routeParams', 'leccionRepository', 'fileCursoRepository', 'avanceCursoRepository', 'currentAuth', function(auth, $scope, $location, $routeParams, leccionRepository, fileCursoRepository, avanceCursoRepository, currentAuth) {
 
     $scope.cursoId = $routeParams.cursoId;
     $scope.leccionId = $routeParams.leccionId;
@@ -28,14 +28,6 @@ angular.module('amorAMiApp')
       })
     })
 
-
-    $scope.logout = function() {
-      auth.$signOut();
-      console.log('logged out');
-      $location.path('/login');
-      $scope.authData = null;
-    };
-
     $scope.verCurso = function(leccionIndex) {
       $location.path('/cursos/' + $scope.cursoId)
     }
@@ -43,7 +35,7 @@ angular.module('amorAMiApp')
     $scope.leccion.$loaded().then(function() {
       $scope.checkBucket();
     }, function(error) {
-      console.log("Couldn't load files from Lesson")
+      console.log('Couldnt load files from Lesson')
     })
 
     $scope.checkBucket = function() {
@@ -68,10 +60,10 @@ angular.module('amorAMiApp')
 
       $scope.checked.$save().then(function(ref) {
         console.log(ref)
-        $location.path('/cursos/' + $scope.cursoId + "/lecciones")
+        $location.path('/cursos/' + $scope.cursoId + '/lecciones')
 
       }, function(error) {
-        console.log("Error:", error);
+        console.log('Error:', error);
       });
       console.log($scope.checked)
 

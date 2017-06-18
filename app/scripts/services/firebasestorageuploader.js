@@ -45,12 +45,12 @@ angular.module('amorAMiApp')
       });
 
       uploadTask.$complete(function(snapshot) {
-        self._onCompleteItem(item, snapshot.downloadURL, "", "");
-        self._onSuccessItem(item, snapshot.downloadURL, "", "");
+        self._onCompleteItem(item, snapshot.downloadURL, '', '');
+        self._onSuccessItem(item, snapshot.downloadURL, '', '');
       });
 
       uploadTask.$error(function(error) {
-        self._onErrorItem(item, error, "", "");
+        self._onErrorItem(item, error, '', '');
       });
 
       this._render();
