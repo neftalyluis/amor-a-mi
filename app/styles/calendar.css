@@ -174,4 +174,10 @@ li#nextmonth li     {
     p, li, a, button{
         font-size: 20px !important;
     }
+
+    .btn{
+        width: 90% !important;
+        margin: 20px !important; 
+        margin-left: 30px !important;
+    }
 }
