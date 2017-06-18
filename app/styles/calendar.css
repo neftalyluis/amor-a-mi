@@ -138,6 +138,7 @@ li#nextmonth li     {
 
     #mainNav{
         height: 100px !important;
+        max-width: 100% !important;
     }
 
     .pink-bar{
@@ -149,14 +150,14 @@ li#nextmonth li     {
     }
 
     .memeo{
-        width: 100% !important;
+        width: 175% !important;
     }
     footer{
-        width: 170% !important;
+        width: 100% !important;
     }
 
     li li {
-        width: 50% !important;
+        width: 45% !important;
     }
 
     li li p {
