@@ -150,10 +150,10 @@ li#nextmonth li     {
     }
 
     .memeo{
-        width: 175% !important;
+        width: 180% !important;
     }
     footer{
-        width: 100% !important;
+        width: 180% !important;
     }
 
     li li {
@@ -171,5 +171,7 @@ li#nextmonth li     {
         font-size: 25px !important;
     }
 
-    
+    p, li, a, button{
+        font-size: 20px !important;
+    }
 }
