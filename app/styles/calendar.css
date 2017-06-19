@@ -172,7 +172,7 @@ li#nextmonth li     {
     }
 
     p, li, a, button{
-        font-size: 20px !important;
+        font-size: 24px !important;
     }
 
     .btn{
@@ -182,14 +182,29 @@ li#nextmonth li     {
     }
 
     .op-mob{
-        width: 175% !important;
+        width: 178% !important;
     }
 
     p span{
-        font-size: 22px !important;
+        font-size: 24px !important;
     }
 
     .ttl-padding{
-        padding: 173px 100px !important;
+        padding: 56px 100px !important;
+    }
+
+    .h-leccion{
+        background-size: 100% !important;
+        background-position: center center !important;
+    }
+
+    .head-calendar{
+        background-size: 100% !important;
+        margin-top: 100px !important;
+        background-repeat: no-repeat !important;
+        height: 200px !important;
+    }
+    .less-space-top{
+        margin-top: -100px !important;
     }
 }
