@@ -188,4 +188,8 @@ li#nextmonth li     {
     p span{
         font-size: 22px !important;
     }
+
+    .ttl-padding{
+        padding: 173px 100px !important;
+    }
 }
