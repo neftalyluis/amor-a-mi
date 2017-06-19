@@ -52,5 +52,8 @@ angular.module('amorAMiApp')
       $location.path('/info/coaching')
     }
 
+    $scope.goToCourses = function() {
+      $location.path('/cursos')
+    }
 
   }]);
