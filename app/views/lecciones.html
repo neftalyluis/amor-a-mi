@@ -4,29 +4,34 @@
     <!-- Trigger the modal with a button -->
     <button class="btn btn-primary btn-xl" data-toggle="modal" data-target="#myModal" id="bienvenidaModal" style="display: none;">{{curso.botonBienvenida}}</button>
 
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog modal-lg">
+    <div id="felicitacionModal" class="modal fade modal-transparent" role="dialog">
+      <div class="modal-dialog">
         <!-- Modal content-->
-        <div class="modal-content" style="background: url(../images/bienvenida.jpg); text-align: center;">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title"></h4>
-          </div>
-          <div class="modal-body text-center" style="color: #000; padding: 15px 40px; font-weight: bold; text-align: center;" ta-bind="text" ng-model="curso.bienvenida">
-          </div>
-          <div class="modal-body text-center" style="color: #000; padding: 15px 40px; text-align: center;">
-            <p class="text-center" style="font-size: 25px;text-align: center; font-family: 'Great Vibes', cursive;">
-              Con cariño tu coach Paola Vega
-              <i class="fa fa-heart" style="color: #da2d7d;"></i>
-            </p>
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="carta">
+              <!-- TODO: FALTA AGREGAR ESTO DESDE FIREBASE-->
+        			<h2 class="text-center" style="color: #f391c5;text-transform: uppercase;">¡Felicidades por haber concluído tu programa!</h2>
+        			<p style="color: black;">Gracias por permitirme ser tu guía durante estos 30 días en un proceso tan maravilloso de amor a ti.</p>
+        			<p style="color: black;">Estoy feliz que hayas concluido tu programa porque sé que tendrás hermosos cambios en la forma de amarte y valorarte.</p>
+        			<p style="color: black;">Deseo de corazón que este cambio tan bonito de amor propio, perdure para siempre en tu corazón.</p>
+        			<p style="color: black;">Recuerda que mientras más te ames a ti misma, más te amarán los demás y mejores relaciones personales tendrás.</p>
+        			<p style="color: black;">Te deseo un futuro lleno de amor, paz, abundancia y felicidad.</p>
+        			<p style="color: #f391c5;">“Qué el amor por ti misma te acompañe toda la vida”</p>
+        			<p class="text-center" style="font-size: 25px;text-align: center; font-family: 'Great Vibes', cursive;color: black;">
+                      Con amor, tu coach Paola Vega
+                      <i class="fa fa-heart" style="color: #da2d7d;"></i>
+              </p>
+        		</div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-info" data-dismiss="modal">Cerrar</button>
           </div>
         </div>
       </div>
     </div>
+
+
   </div>
 </div>
 
