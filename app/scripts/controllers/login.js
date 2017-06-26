@@ -15,7 +15,6 @@ angular.module('amorAMiApp')
 
     auth.$onAuthStateChanged(function(authData) {
       if (authData) {
-        console.log(' logged: ' + authData.uid);
         $scope.logoutBtn = true;
         $scope.loginBtn = false;
         $location.path('/cursos');
@@ -24,7 +23,6 @@ angular.module('amorAMiApp')
 
     // Autenthication with password and email
     $scope.passwordLogin = function(email, pass) {
-
       auth.$signInWithEmailAndPassword(email, pass)
         .then(function(authData) {
           redirect();
@@ -37,6 +35,7 @@ angular.module('amorAMiApp')
     };
 
     function redirect() {
+
       $scope.playBeso();
       $location.path('/cursos');
     }
@@ -46,12 +45,10 @@ angular.module('amorAMiApp')
     }
 
     $scope.playBeso = function() {
-
       $scope.besos.$getDownloadURL().then(function(url) {
         var audio = new Audio(url);
         audio.play();
       });
-
     }
 
 
