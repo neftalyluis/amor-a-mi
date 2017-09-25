@@ -82,6 +82,10 @@ angular.module('amorAMiApp')
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
+      .when('/ebook-gratis', {
+        templateUrl: 'views/ebook.html',
+        controller: 'EbookCtrl'
+      })
       .when('/account', {
         templateUrl: 'views/account.html',
         controller: 'AccountCtrl',
