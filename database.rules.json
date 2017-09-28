@@ -1,7 +1,7 @@
 {
   "rules": {
     "leads": {
-      ".read": "auth!= null",
+      ".read": "true",
       ".write": "true"
     },
     ".read": "auth != null",
